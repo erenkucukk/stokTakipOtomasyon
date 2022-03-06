@@ -1,0 +1,42 @@
+﻿@using StokTakip.Entities.Model
+@model List<Birim>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div style="margin:15px;text-align:center;color:darkslategray">
+    <h2><b> Birimler Listesi </b></h2>
+</div>
+
+<div style="margin:15px" class="form-group">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Birim Id</th>
+                <th>Birim Adı</th>
+                <th>Açıklama</th>
+                <th>Durumu</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var brm in Model)
+            {
+                <tr>
+                    <td>@brm.BirimId</td>
+                    <td>@brm.BirimAdi</td>
+                    <td>@brm.BirimAciklama</td>
+                    <td>@brm.BirimDurum</td>
+                    <td>
+                        <a class="btn btn-success" href="/Birim/Guncelle/@brm.BirimId">Güncelle</a>
+                        <a class="btn btn-danger" href="/Birim/Sil/@brm.BirimId">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <a class="btn btn-primary" href="/Birim/Ekle/">Yeni Birim Ekle</a>
+</div>
+
