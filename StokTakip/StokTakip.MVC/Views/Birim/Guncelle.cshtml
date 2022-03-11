@@ -1,0 +1,25 @@
+﻿@using StokTakip.Entities.Model
+@model Birim
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div style="margin:15px;text-align:center;color:blueviolet">
+    <h2><b>Birim Güncelle</b></h2>
+</div>
+<div class="form-group" style="margin:15px">
+    @using (Html.BeginForm("Guncelle", "Birim", FormMethod.Post))
+     {
+        @Html.HiddenFor(x=>x.BirimId)
+
+        @Html.LabelFor(x=>x.BirimAdi)
+        @Html.TextBoxFor(x => x.BirimAdi, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x=>x.BirimAciklama)
+        @Html.TextBoxFor(x => x.BirimAciklama, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Birim Güncelle</button>
+     }
+</div>
+
+

@@ -4,8 +4,9 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<div style="margin:15px;text-align:center;color:darkslategray">
-    <h2><b> Birimler Listesi </b></h2>
+
+<div style="margin:15px;text-align:center;color:white;background-color:#4B5860">
+    <h2><b>Birim Listesi</b></h2>
 </div>
 
 <div style="margin:15px" class="form-group">
@@ -15,7 +16,7 @@
                 <th>Birim Id</th>
                 <th>Birim Adı</th>
                 <th>Açıklama</th>
-                <th>Durumu</th>
+                <th>Durum</th>
                 <th>İşlem</th>
             </tr>
         </thead>
@@ -35,7 +36,6 @@
             }
         </tbody>
     </table>
-
 
     <a class="btn btn-primary" href="/Birim/Ekle/">Yeni Birim Ekle</a>
 </div>
