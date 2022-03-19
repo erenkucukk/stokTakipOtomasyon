@@ -69,6 +69,14 @@
     <Compile Include="Migrations\202203021253131_DatabaseOlustur.designer.cs">
       <DependentUpon>202203021253131_DatabaseOlustur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202203151337270_Guncelleme01.cs" />
+    <Compile Include="Migrations\202203151337270_Guncelleme01.designer.cs">
+      <DependentUpon>202203151337270_Guncelleme01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203161010457_bos.cs" />
+    <Compile Include="Migrations\202203161010457_bos.designer.cs">
+      <DependentUpon>202203161010457_bos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AltKategori.cs" />
     <Compile Include="Model\Birim.cs" />
@@ -91,6 +99,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202203021253131_DatabaseOlustur.resx">
       <DependentUpon>202203021253131_DatabaseOlustur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203151337270_Guncelleme01.resx">
+      <DependentUpon>202203151337270_Guncelleme01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203161010457_bos.resx">
+      <DependentUpon>202203161010457_bos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

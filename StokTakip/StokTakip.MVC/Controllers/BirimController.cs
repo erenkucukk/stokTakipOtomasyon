@@ -18,6 +18,26 @@ namespace StokTakip.MVC.Controllers
             return View(birimler);
         }
 
+        // Birim Ekle
+
+        [HttpGet]
+        public ActionResult Ekle()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Ekle(Birim pBrm)
+        {
+            Birim brm = new Birim();
+            brm.BirimAdi = pBrm.BirimAdi;
+            brm.BirimAciklama = pBrm.BirimAciklama;
+            brm.BirimDurum = true;
+
+            db.Birims.Add(brm);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
         // Birim Sil
 
@@ -27,26 +47,6 @@ namespace StokTakip.MVC.Controllers
             brm.BirimDurum = false;
             db.SaveChanges();
             return RedirectToAction("index");
-        }
-
-        // Birim Ekle
-        [HttpGet]
-        public ActionResult Ekle()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Ekle(Birim pbrm)
-        {
-            Birim brm = new Birim();
-            brm.BirimAdi = pbrm.BirimAdi;
-            brm.BirimAciklama = pbrm.BirimAciklama;
-            brm.BirimDurum = true;
-
-            db.Birims.Add(brm);
-            db.SaveChanges();
-
-            return RedirectToAction("Index");
         }
 
         // Birim Güncelle
@@ -59,11 +59,11 @@ namespace StokTakip.MVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Guncelle(Birim pbrm)
+        public ActionResult Guncelle(Birim pBrm)
         {
-            Birim brm = db.Birims.Find(pbrm.BirimId);
-            brm.BirimAdi = pbrm.BirimAdi;
-            brm.BirimAciklama = pbrm.BirimAciklama;
+            Birim brm = db.Birims.Find(pBrm.BirimId);
+            brm.BirimAdi = pBrm.BirimAdi;
+            brm.BirimAciklama = pBrm.BirimAciklama;
             brm.BirimDurum = true;
             db.SaveChanges();
             return RedirectToAction("Index");

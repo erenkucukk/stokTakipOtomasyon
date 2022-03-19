@@ -12,6 +12,7 @@ namespace StokTakip.Entities.Model
         public string UyeAdi { get; set; }
         public string UyeSoyadi { get; set; }
         public int UyeTelefon { get; set; }
+        public string Cinsiyet { get; set; }
         public string UyeMail { get; set; }
         public string UyeSifre { get; set; }
         public int YetkiId { get; set; }

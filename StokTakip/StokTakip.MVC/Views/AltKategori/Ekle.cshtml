@@ -1,0 +1,22 @@
+﻿@model StokTakip.Entities.Model.AltKategori
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="text-align:center;color:white; margin:15px;background-color:#4B5860">
+    <h2><b>Alt Kategori Ekle</b></h2>
+</div>
+
+<div style="margin:15px" class="form-group">
+    @using (Html.BeginForm("Ekle", "AltKategori", FormMethod.Post))
+    {
+        @Html.Label("Alt Kategori Adı")
+        @Html.TextBoxFor(x=>x.AltKategoriAdi,new { @class = "form-control"})
+        <br />
+        @Html.Label("Alt Kategori Açıklama");
+        @Html.TextBoxFor(x=>x.AltKategoriAciklama, new { @class = "form-control"})
+        <br />
+        <a class="btn btn-success">Alt Kategori Ekle</a>
+    }
+</div>

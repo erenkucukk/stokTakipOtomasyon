@@ -1,0 +1,27 @@
+﻿@model StokTakip.Entities.Model.Kategori
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="margin:15px;text-align:center;color:#4B5860">
+    <h2><b>@Model.KategoriAdi Güncelle</b></h2>
+</div>
+
+<div class="form-group" style="margin:15px">
+    @using (Html.BeginForm("Guncelle", "Kategori", FormMethod.Post))
+    {
+
+        @Html.HiddenFor(x => x.KategoriId)
+
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x => x.KategoriAdi, new { @class = "form-control" })
+        <br />
+        @Html.Label("Kategori Açıklama")
+        @Html.TextBoxFor(x => x.KategoriAciklama, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Kategori Güncelle</button>
+    }
+</div>
+
+

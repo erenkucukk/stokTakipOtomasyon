@@ -132,6 +132,7 @@
     <Compile Include="Controllers\BirimController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\MarkaController.cs" />
+    <Compile Include="Controllers\StokGirisCikisController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2616,6 +2617,16 @@
     <Content Include="Views\Marka\Index.cshtml" />
     <Content Include="Views\Kategori\Index.cshtml" />
     <Content Include="Views\AltKategori\Index.cshtml" />
+    <Content Include="Views\Marka\Ekle.cshtml" />
+    <Content Include="Views\Marka\Guncelle.cshtml" />
+    <Content Include="Views\Kategori\Ekle.cshtml" />
+    <Content Include="Views\Kategori\Guncelle.cshtml" />
+    <Content Include="Views\AltKategori\Ekle.cshtml" />
+    <Content Include="Views\AltKategori\Guncelle.cshtml" />
+    <Content Include="Views\StokGirisCikis\Sil.cshtml" />
+    <Content Include="Views\StokGirisCikis\Ekle.cshtml" />
+    <Content Include="Views\StokGirisCikis\Index.cshtml" />
+    <Content Include="Views\StokGirisCikis\Guncelle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

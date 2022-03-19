@@ -3,16 +3,18 @@
     ViewBag.Title = "Ekle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<div style="text-align:center;color:coral">
+
+<div style="text-align:center;color:white; margin:15px;background-color:#4B5860">
     <h2><b>Birim Ekle</b></h2>
 </div>
+
 <div style="margin:15px" class="form-group">
     @using (Html.BeginForm("Ekle", "Birim", FormMethod.Post))
     {
-        @Html.LabelFor(x => x.BirimAdi);
+        @Html.Label("Birim Adı")
         @Html.TextBoxFor(x => x.BirimAdi, new { @class = "form-control" })
         <br />
-        @Html.LabelFor(x => x.BirimAciklama);
+        @Html.Label("Birim Açıklama")
         @Html.TextBoxFor(x => x.BirimAciklama, new { @class = "form-control" })
         <br />
         <button class="btn btn-success">Birim Ekle</button>

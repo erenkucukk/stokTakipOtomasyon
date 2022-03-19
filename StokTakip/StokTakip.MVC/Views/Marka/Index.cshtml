@@ -12,7 +12,7 @@
 <div style="margin:15px" class="form-group">
     <table class="table table-bordered">
         <thead>
-            <tr>
+            <tr style="text-align:center; background-color:#4B5860; color:white">
                 <th>Marka Id</th>
                 <th>Marka Adı</th>
                 <th>Açıklama</th>
@@ -23,19 +23,20 @@
         <tbody>
             @foreach (var marka in Model)
             {
-                <tr>
+                <tr style="text-align:center">
                     <td>@marka.MarkaId</td>
                     <td>@marka.MarkaAdi</td>
                     <td>@marka.MarkaAciklama</td>
                     <td>@marka.MarkaDurum</td>
                     <td>
-                        <a class="btn btn-success" href="/Marka/Guncelle/@marka.MarkaId">Güncelle</a>
-                        <a class="btn btn-danger" href="/Marka/Sil/@marka.MarkaId">Sil</a>
+                        <a class="btn btn-success" href="/Marka/Guncelle/@marka.MarkaId">Güncelle</a>&nbsp;
+                        <a class="btn btn-danger" href="/Marka/Sil/@marka.MarkaId">Sil</a>&nbsp;
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+
 
     <a class="btn btn-primary" href="/Marka/Ekle/">Yeni Marka Ekle</a>
 </div>

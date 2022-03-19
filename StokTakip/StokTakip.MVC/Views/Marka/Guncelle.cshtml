@@ -1,0 +1,24 @@
+﻿@model StokTakip.Entities.Model.Marka
+@{
+    ViewBag.Title = "Guncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="margin:15px;text-align:center;color:#4B5860">
+    <h2><b>@Model.MarkaAdi Güncelle</b></h2>
+</div>
+
+<div class="form-group" style="margin:15px">
+    @using (Html.BeginForm("Guncelle", "Marka", FormMethod.Post))
+    {
+        @Html.HiddenFor(x => x.MarkaId)
+
+        @Html.Label("Marka Adı")
+        @Html.TextBoxFor(x => x.MarkaAdi, new { @class = "form-control" })
+        <br />
+        @Html.Label("Marka Açıklama")
+        @Html.TextBoxFor(x => x.MarkaAciklama, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Marka Güncelle</button>
+    }
+</div>

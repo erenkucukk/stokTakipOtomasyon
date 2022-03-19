@@ -12,7 +12,7 @@
 <div style="margin:15px" class="form-group">
     <table class="table table-bordered">
         <thead>
-            <tr>
+            <tr style="text-align:center; background-color:#4B5860; color:white">
                 <th>Birim Id</th>
                 <th>Birim Adı</th>
                 <th>Açıklama</th>
@@ -23,13 +23,13 @@
         <tbody>
             @foreach (var brm in Model)
             {
-                <tr>
+                <tr style="text-align:center">
                     <td>@brm.BirimId</td>
                     <td>@brm.BirimAdi</td>
                     <td>@brm.BirimAciklama</td>
                     <td>@brm.BirimDurum</td>
                     <td>
-                        <a class="btn btn-success" href="/Birim/Guncelle/@brm.BirimId">Güncelle</a>
+                        <a class="btn btn-success" href="/Birim/Guncelle/@brm.BirimId">Güncelle</a>&nbsp;
                         <a class="btn btn-danger" href="/Birim/Sil/@brm.BirimId">Sil</a>
                     </td>
                 </tr>
@@ -38,5 +38,5 @@
     </table>
 
     <a class="btn btn-primary" href="/Birim/Ekle/">Yeni Birim Ekle</a>
-</div>
 
+</div>

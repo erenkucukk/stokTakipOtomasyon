@@ -19,5 +19,7 @@ namespace StokTakip.Entities.Model
         public string UrunAciklama { get; set; }
         public int Stokİslem { get; set; }
         public int StokPersonel { get; set; }
+        public bool UrunDurum { get; set; }
+
     }
 }
