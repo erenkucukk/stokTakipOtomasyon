@@ -61,6 +61,7 @@
     <Compile Include="Mapping\KasaMap.cs" />
     <Compile Include="Mapping\KategoriMap.cs" />
     <Compile Include="Mapping\MarkaMap.cs" />
+    <Compile Include="Mapping\PersonelMap.cs" />
     <Compile Include="Mapping\StokGirisCikisMap.cs" />
     <Compile Include="Mapping\UrunMap.cs" />
     <Compile Include="Mapping\UyeMap.cs" />
@@ -73,9 +74,25 @@
     <Compile Include="Migrations\202203151337270_Guncelleme01.designer.cs">
       <DependentUpon>202203151337270_Guncelleme01.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202203161010457_bos.cs" />
-    <Compile Include="Migrations\202203161010457_bos.designer.cs">
-      <DependentUpon>202203161010457_bos.cs</DependentUpon>
+    <Compile Include="Migrations\202203151916561_Güncelleme02.cs" />
+    <Compile Include="Migrations\202203151916561_Güncelleme02.designer.cs">
+      <DependentUpon>202203151916561_Güncelleme02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203201044189_Guncelleme03.cs" />
+    <Compile Include="Migrations\202203201044189_Guncelleme03.designer.cs">
+      <DependentUpon>202203201044189_Guncelleme03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203201441108_Guncelleme04.cs" />
+    <Compile Include="Migrations\202203201441108_Guncelleme04.designer.cs">
+      <DependentUpon>202203201441108_Guncelleme04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203201556324_Guncelleme05.cs" />
+    <Compile Include="Migrations\202203201556324_Guncelleme05.designer.cs">
+      <DependentUpon>202203201556324_Guncelleme05.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202203211153493_Guncelleme06.cs" />
+    <Compile Include="Migrations\202203211153493_Guncelleme06.designer.cs">
+      <DependentUpon>202203211153493_Guncelleme06.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AltKategori.cs" />
@@ -85,6 +102,7 @@
     <Compile Include="Model\KasaHareketleri.cs" />
     <Compile Include="Model\Kategori.cs" />
     <Compile Include="Model\Marka.cs" />
+    <Compile Include="Model\Personel.cs" />
     <Compile Include="Model\StokGirisCikis.cs" />
     <Compile Include="Model\StokTakipContext.cs" />
     <Compile Include="Model\Urun.cs" />
@@ -103,8 +121,20 @@
     <EmbeddedResource Include="Migrations\202203151337270_Guncelleme01.resx">
       <DependentUpon>202203151337270_Guncelleme01.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203161010457_bos.resx">
-      <DependentUpon>202203161010457_bos.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202203151916561_Güncelleme02.resx">
+      <DependentUpon>202203151916561_Güncelleme02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203201044189_Guncelleme03.resx">
+      <DependentUpon>202203201044189_Guncelleme03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203201441108_Guncelleme04.resx">
+      <DependentUpon>202203201441108_Guncelleme04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203201556324_Guncelleme05.resx">
+      <DependentUpon>202203201556324_Guncelleme05.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202203211153493_Guncelleme06.resx">
+      <DependentUpon>202203211153493_Guncelleme06.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

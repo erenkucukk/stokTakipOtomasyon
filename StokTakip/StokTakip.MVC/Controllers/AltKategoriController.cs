@@ -14,7 +14,7 @@ namespace StokTakip.MVC.Controllers
         // GET: AltKategori
         public ActionResult Index()
         {
-            List<AltKategori> altkategoriler = db.AltKategoris.Where(x => x.AltKategoriDurum == true).ToList();
+            List<AltKategori> altkategoriler = db.AltKategoris.Where(x => x.AltKategoriDurum).ToList();
             return View(altkategoriler);
         }
 
@@ -23,6 +23,13 @@ namespace StokTakip.MVC.Controllers
         [HttpGet]
         public ActionResult Ekle()
         {
+            List<SelectListItem> kategoriler = db.Kategoris.AsNoTracking().Where(b => b.KategoriDurum == true)
+                                   .Select(s => new SelectListItem
+                                   {
+                                       Value = s.KategoriId.ToString(),
+                                       Text = s.KategoriAdi
+                                   }).ToList();
+            ViewBag.Kategoriler = kategoriler;
             return View();
         }
 
@@ -30,6 +37,9 @@ namespace StokTakip.MVC.Controllers
         public ActionResult Ekle(AltKategori pAltKtgr)
         {
             pAltKtgr.AltKategoriDurum = true;
+
+            pAltKtgr.Kategori = db.Kategoris.Find(pAltKtgr.KategoriId);
+
             db.AltKategoris.Add(pAltKtgr);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -51,6 +61,16 @@ namespace StokTakip.MVC.Controllers
         public ActionResult Guncelle(int id)
         {
             AltKategori altKtgr = db.AltKategoris.Find(id);
+
+            List<SelectListItem> kategoriler = db.Kategoris.AsNoTracking().Where(b => b.KategoriDurum == true)
+                                            .Select(s => new SelectListItem
+                                            {
+                                                Value = s.KategoriId.ToString(),
+                                                Text = s.KategoriAdi
+                                            }).ToList();
+
+            ViewBag.Kategoriler = kategoriler;
+
             return View(altKtgr);
         }
 
@@ -60,6 +80,7 @@ namespace StokTakip.MVC.Controllers
             AltKategori altKtgr = db.AltKategoris.Find(pAltKtgr.AltKategoriId);
             altKtgr.AltKategoriAdi = pAltKtgr.AltKategoriAdi;
             altKtgr.AltKategoriAciklama = pAltKtgr.AltKategoriAciklama;
+            altKtgr.KategoriId = pAltKtgr.KategoriId;
             altKtgr.AltKategoriDurum = true;
             db.SaveChanges();
             return RedirectToAction("Index");

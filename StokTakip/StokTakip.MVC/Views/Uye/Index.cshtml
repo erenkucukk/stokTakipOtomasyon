@@ -1,0 +1,73 @@
+﻿@using StokTakip.Entities.Model
+@model List<Uye>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="margin:15px;text-align:center;color:white;background-color:#4B5860">
+    <h2><b>Üye Listesi</b></h2>
+</div>
+
+<div style="margin:15px" class="form-group">
+    <table class="table table-bordered">
+        <thead>
+            <tr style="text-align:center; background-color:#4B5860; color:white">
+                <th>Üye Id</th>
+                <th>Üye Adı</th>
+                <th>Üye Soyadı</th>
+                <th>Üye Telefon</th>
+                <th>Üye Cinsiyet</th>
+                <th>Üye Mail</th>
+                <th>Üye Doğum Tarihi</th>
+                <th>Üye Resim</th>
+                <th>Üye Durum</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var uye in Model)
+            {
+                #region // bazı özellikler
+                string renk = "red", cinsiyet = "Belirtilmemiş";
+                if (uye.UyeDurum)
+                {
+                    renk = "#000000";
+                }
+                else
+                {
+                    renk = "red";
+                }
+                if (uye.Cinsiyet=="K")
+                {
+                    cinsiyet = "Kadın";
+                }
+                else if (uye.Cinsiyet=="E")
+                {
+                    cinsiyet = "Erkek";
+                }
+                #endregion
+
+                <tr style="text-align:center;color:@renk">
+                    <td>@uye.UyeId</td>
+                    <td>@uye.UyeAdi</td>
+                    <td>@uye.UyeSoyadi</td>
+                    <td>@uye.UyeTelefon</td>
+                    <td>@cinsiyet</td>
+                    <td>@uye.UyeMail</td>
+                    <td>@uye.UyeDogumTarihi</td>
+                    <td>@uye.UyeResim</td>
+                    <td>@uye.UyeDurum</td>
+                    <td>
+                        <a class="btn btn-success" href="/Uye/Guncelle/@uye.UyeId">Güncelle</a>&nbsp;
+                        <a class="btn btn-danger" href="/Uye/Sil/@uye.UyeId">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="/Uye/Ekle/">Yeni Üye Ekle</a>
+
+</div>
+

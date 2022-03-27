@@ -14,6 +14,8 @@ namespace StokTakip.Entities.Mapping
             this.Property(p => p.MarkaAdi).HasColumnType("varchar").HasMaxLength(50);
             this.Property(p => p.MarkaAciklama).HasColumnType("varchar").HasMaxLength(50);
 
+
+
         }
     }
 }

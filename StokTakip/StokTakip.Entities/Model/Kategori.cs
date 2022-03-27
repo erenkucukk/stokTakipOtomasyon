@@ -20,7 +20,7 @@ namespace StokTakip.Entities.Model
         public string KategoriAciklama { get; set; }
 
         public virtual ICollection<AltKategori> AltKategoris { get; set; }
-        public virtual ICollection<StokGirisCikis> StokGirisCikiss { get; set; }
+        public virtual ICollection<Urun> Uruns { get; set; }
 
     }
 }

@@ -1,0 +1,44 @@
+﻿@model StokTakip.Entities.Model.Urun
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="text-align:center;color:white; margin:15px;background-color:#4B5860">
+    <h2><b>Urun Ekle</b></h2>
+</div>
+
+<div style="margin:15px" class="form-group">
+    @using (Html.BeginForm("Ekle", "Urun", FormMethod.Post))
+    {
+
+        @Html.Label("Ürün Adı")
+        @Html.TextBoxFor(x => x.UrunAdi, new { @class = "form-control" })
+        <br />
+        @Html.Label("Ürün Miktar")
+        @Html.TextBoxFor(x => x.UrunMiktar, new { @class = "form-control" })
+        <br />
+        @Html.Label("Birim")
+        @Html.DropDownListFor(x => x.UrunBirimId, (List<SelectListItem>)ViewBag.Birimler, "----Seçiniz----", new { @class = "form-control" })
+        <br />
+        @Html.Label("Kategori")
+        @Html.DropDownListFor(x => x.UrunKategoriId, (List<SelectListItem>)ViewBag.Kategoriler,"----Seçiniz----", new { @class = "form-control" })
+        <br />
+        @Html.Label("Marka")
+        @Html.DropDownListFor(x => x.UrunMarkaId, (List<SelectListItem>)ViewBag.Markalar, "----Seçiniz----", new { @class = "form-control" })
+        <br />
+        @Html.Label("UrunAlisFiyat")
+        @Html.TextBoxFor(x => x.UrunAlisFiyat, new { @class = "form-control" })
+        <br />
+        @Html.Label("UrunToplamFiyat")
+        @Html.TextBoxFor(x => x.UrunToplamFiyat, new { @class = "form-control" })
+        <br />
+        @Html.Label("UrunAciklama")
+        @Html.TextBoxFor(x => x.UrunAciklama, new { @class = "form-control" })
+        <br />
+        @Html.Label("StokPersonel")
+        @Html.TextBoxFor(x => x.StokPersonel, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Ürün Ekle</button>
+    }
+</div>

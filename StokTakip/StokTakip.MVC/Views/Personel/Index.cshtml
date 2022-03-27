@@ -1,0 +1,59 @@
+﻿@using StokTakip.Entities.Model
+@model List<Personel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="text-align:center;background-color:#4B5860;color:white;margin:15px">
+    <h2><b>Personel Listesi</b></h2>
+</div>
+
+<div style="margin:15px" class="form-group">
+    <table class="table table-bordered">
+        <thead>
+            <tr style="text-align:center; background-color:#4B5860; color:white">
+                <th>Id</th>
+                <th>Adı Soyadı</th>
+                <th>Mail</th>
+                <th>Telefon</th>
+                <th>Kullanıcı Adı</th>
+                <th>Doğum Tarihi</th>
+                <th>Yetkisi</th>
+                <th>Durumu</th>
+                <th>Fotoğraf</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pers in Model)
+            {
+                string renk = "black";
+                string durum = "Aktif";
+                if (!pers.PersonelDurum)
+                {
+                    renk = "#908f8f";
+                    durum = "Pasif";
+                }
+                <tr style="text-align:center; color:@renk">
+                    <td>@pers.PersonelId</td>
+                    <td>@pers.PersonelAdi &nbsp; @pers.PersonelSoyadi</td>
+                    <td>@pers.PersonelMail</td>
+                    <td>@pers.Telefon</td>
+                    <td>@pers.PersonelKAdi</td>
+                    <td>@pers.DogumTarihi.ToLongDateString()</td>
+                    <td>@pers.Yetki.YetkiAdi</td>
+                    <td>@durum</td>
+                    <td><a href="/Personel/Guncelle/@pers.PersonelId"><img src="@pers.Fotograf" width="50" height="50" /></a></td>
+                    <td>
+                        <a class="btn btn-success" href="/Personel/Guncelle/@pers.PersonelId">Güncelle</a>&nbsp;
+                        <a class="btn btn-danger" href="/Personel/Sil/@pers.PersonelId">Sil</a>&nbsp;
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <a class="btn btn-primary" href="/Personel/Ekle/">Yeni Personel Ekle</a>
+</div>

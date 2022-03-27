@@ -64,5 +64,6 @@ namespace StokTakip.MVC.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
     }
 }

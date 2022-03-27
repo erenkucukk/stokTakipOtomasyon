@@ -1,0 +1,143 @@
+﻿
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="text-align:center;color:white; margin:15px;background-color:#4B5860">
+
+    <h2><b>Personel Ekle</b></h2>
+
+</div>
+
+
+<div class="tab-pane" id="settings">
+
+    <form class="form-horizontal" method="post">
+
+
+        <div class="form-group row">
+            <div class="col-sm-1">
+
+            </div>
+            <label for="inputName" style="text-align:right" class="col-sm-1 col-form-label">Adı:</label>
+            <div class="col-sm-8">
+                <input type="text" name="PersonelAdi" class="form-control" id="inputName" placeholder="Adi giriniz..">
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-1">
+
+            </div>
+            <label for="inputName" style="text-align:right" class="col-sm-1 col-form-label">Soyadı:</label>
+            <div class="col-sm-8">
+                <input type="text" name="PersonelSoyadi" class="form-control" id="inputName" placeholder="Soyadı giriniz..">
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-1">
+
+            </div>
+            <label for="inputName" style="text-align:right" class="col-sm-1 col-form-label">Mail:</label>
+            <div class="col-sm-8">
+                <input type="email" name="PersonelMail" class="form-control" id="inputName" placeholder="Mail giriniz..">
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-1">
+
+            </div>
+            <label for="inputName" style="text-align:right" class="col-sm-1 col-form-label">Telefon:</label>
+            <div class="col-sm-8">
+                <input type="text" name="Telefon" class="form-control" id="inputName" placeholder="Telefonunuzu giriniz..">
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-1">
+
+            </div>
+            <label for="inputName" style="text-align:right" class="col-sm-1 col-form-label">Kullanıcı Adı:</label>
+            <div class="col-sm-8">
+                <input type="text" name="PersonelKAdi" class="form-control" id="inputName" placeholder="Kullanıcı Adı giriniz..">
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-1">
+
+            </div>
+            <label for="inputName" style="text-align:right" class="col-sm-1 col-form-label">Doğum Tarihi:</label>
+            <div class="col-sm-8">
+                <input type="date" name="DogumTarihi" class="form-control" id="inputName">
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-sm-1">
+
+            </div>
+            <label for="inputName" style="text-align:right" class="col-sm-1 col-form-label">Yetkisi:</label>
+            <div class="col-sm-8">
+                <input type="text" name="YetkiId" class="form-control" id="inputName" placeholder="Yetki giriniz..">
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group row">
+            <div class="col-sm-1">
+
+            </div>
+            <label for="inputName" style="text-align:right" class="col-sm-1 col-form-label">Fotoğraf:</label>
+            <div class="col-sm-8">
+                <input type="text" name="Fotograf" class="form-control" id="inputName" placeholder="Fotograf linkini giriniz..">
+            </div>
+            <div class="col-sm-2">
+
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Ekle</button>
+            </div>
+        </div>
+    </form>
+
+
+</div>

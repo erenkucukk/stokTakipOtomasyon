@@ -10,13 +10,18 @@ namespace StokTakip.MVC.Controllers
     public class BirimController : Controller
     {
         StokTakipContext db = new StokTakipContext();
-        
+
         // GET: Birim
-        public ActionResult Index()
+        public ActionResult Index(string aranacakKelime)
         {
-            List<Birim> birimler = db.Birims.Where(x => x.BirimDurum == true).ToList();
-            return View(birimler);
+            var birimler = db.Birims.Where(x => x.BirimDurum == true);
+            if (!string.IsNullOrEmpty(aranacakKelime))
+            {
+                birimler = birimler.Where(x => x.BirimAdi.Contains(aranacakKelime));
+            }
+            return View(birimler.ToList());
         }
+
 
         // Birim Ekle
 

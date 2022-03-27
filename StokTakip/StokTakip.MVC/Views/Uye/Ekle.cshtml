@@ -1,0 +1,40 @@
+﻿@model StokTakip.Entities.Model.Uye
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="text-align:center;color:white; margin:15px;background-color:#4B5860">
+    <h2><b>Üye Ekle</b></h2>
+</div>
+
+<div style="margin:15px" class="form-group">
+    @using (Html.BeginForm("Ekle", "Uye", FormMethod.Post))
+    {
+        @Html.Label("Üye Adı")
+        @Html.TextBoxFor(x => x.UyeAdi, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Soyadı")
+        @Html.TextBoxFor(x => x.UyeSoyadi, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Telefon")
+        @Html.TextBoxFor(x => x.UyeTelefon, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Cinsiyet")
+        @Html.TextBoxFor(x => x.Cinsiyet, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Mail")
+        @Html.TextBoxFor(x => x.UyeMail, new {@style="email", @class = "form-control" })
+        <br />
+        @Html.Label("Üye Doğum Tarihi")
+        @Html.TextBoxFor(x => x.UyeDogumTarihi, new { @class = "form-control" })
+        <br />
+        @Html.Label("Üye Resim")
+        @Html.TextBoxFor(x => x.UyeResim, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-success">Üye Ekle</button>
+    }
+</div>
+
+
+

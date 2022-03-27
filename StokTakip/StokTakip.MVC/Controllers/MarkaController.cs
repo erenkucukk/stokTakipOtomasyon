@@ -61,6 +61,7 @@ namespace StokTakip.MVC.Controllers
             Marka mrk = db.Markas.Find(pMrk.MarkaId);
             mrk.MarkaAdi = pMrk.MarkaAdi;
             mrk.MarkaAciklama = pMrk.MarkaAciklama;
+
             mrk.MarkaDurum = true;
             db.SaveChanges();
             return RedirectToAction("Index");

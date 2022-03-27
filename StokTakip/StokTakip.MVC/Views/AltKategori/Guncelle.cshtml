@@ -14,6 +14,9 @@
 
         @Html.HiddenFor(x => x.AltKategoriId)
 
+        @Html.Label("Kategori")
+        @Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.Kategoriler, new { @class = "form-control" })
+
         @Html.Label("Alt Kategori Adı")
         @Html.TextBoxFor(x => x.AltKategoriAdi, new { @class = "form-control" })
         <br />

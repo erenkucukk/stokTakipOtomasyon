@@ -1,5 +1,5 @@
 ﻿@using StokTakip.Entities.Model
-@model StokGirisCikis
+@model Urun
 @{
     ViewBag.Title = "Guncelle";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -11,18 +11,24 @@
 
 
 <div class="form-group" style="margin:15px">
-    @using (Html.BeginForm("Guncelle", "StokGirisCikis", FormMethod.Post))
+    @using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
     {
         @Html.HiddenFor(x => x.UrunStokKodu)
 
-        @Html.Label("UrunMiktar")
+        @Html.Label("Ürün Adı")
+        @Html.TextBoxFor(x => x.UrunAdi, new { @class = "form-control" })
+        <br />
+        @Html.Label("Ürün Miktar")
         @Html.TextBoxFor(x => x.UrunMiktar, new { @class = "form-control" })
         <br />
-        @Html.Label("UrunBirimId")
+        @Html.Label("Birim")
         @Html.DropDownListFor(x => x.UrunBirimId, (List<SelectListItem>)ViewBag.Birimler, new { @class = "form-control" })
         <br />
-        @Html.Label("UrunKategoriId")
+        @Html.Label("Kategori")
         @Html.DropDownListFor(x => x.UrunKategoriId, (List<SelectListItem>)ViewBag.Kategoriler, new { @class = "form-control" })
+        <br />
+        @Html.Label("Marka")
+        @Html.DropDownListFor(x => x.UrunMarkaId, (List<SelectListItem>)ViewBag.Markalar, new { @class = "form-control" })
         <br />
         @Html.Label("UrunAlisFiyat")
         @Html.TextBoxFor(x => x.UrunAlisFiyat, new { @class = "form-control" })
@@ -35,7 +41,8 @@
         <br />
         @Html.Label("StokPersonel")
         @Html.TextBoxFor(x => x.StokPersonel, new { @class = "form-control" })
+
         <br />
-        <button class="btn btn-success">Birim Güncelle</button>
+        <button class="btn btn-success">Ürün Güncelle</button>
     }
 </div>

@@ -1,4 +1,6 @@
-﻿using StokTakip.Entities.Mapping;
+﻿
+
+using StokTakip.Entities.Mapping;
 using System.Data.Entity;
 
 namespace StokTakip.Entities.Model
@@ -15,6 +17,7 @@ namespace StokTakip.Entities.Model
             modelBuilder.Configurations.Add(new KategoriMap());
             modelBuilder.Configurations.Add(new AltKategoriMap());
             modelBuilder.Configurations.Add(new BirimMap());
+            modelBuilder.Configurations.Add(new PersonelMap());
             modelBuilder.Configurations.Add(new KartBilgileriMap());
             modelBuilder.Configurations.Add(new KasaHareketleriMap());
             modelBuilder.Configurations.Add(new KasaMap());
@@ -32,6 +35,7 @@ namespace StokTakip.Entities.Model
         public DbSet<Kasa> Kasas { get; set; }
         public DbSet<KasaHareketleri> KasaHareketleris { get; set; }
         public DbSet<Marka> Markas { get; set; }
+        public DbSet<Personel> Personels { get; set; }
         public DbSet<StokGirisCikis> StokGirisCikiss { get; set; }
         public DbSet<Urun> Uruns { get; set; }
         public DbSet<Uye> Uyes { get; set; }

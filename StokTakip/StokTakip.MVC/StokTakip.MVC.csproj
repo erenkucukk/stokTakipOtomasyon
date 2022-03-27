@@ -132,7 +132,10 @@
     <Compile Include="Controllers\BirimController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\MarkaController.cs" />
+    <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\StokGirisCikisController.cs" />
+    <Compile Include="Controllers\UrunController.cs" />
+    <Compile Include="Controllers\UyeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2623,10 +2626,17 @@
     <Content Include="Views\Kategori\Guncelle.cshtml" />
     <Content Include="Views\AltKategori\Ekle.cshtml" />
     <Content Include="Views\AltKategori\Guncelle.cshtml" />
-    <Content Include="Views\StokGirisCikis\Sil.cshtml" />
-    <Content Include="Views\StokGirisCikis\Ekle.cshtml" />
+    <Content Include="Views\Urun\Sil.cshtml" />
+    <Content Include="Views\Urun\Ekle.cshtml" />
+    <Content Include="Views\Urun\Index.cshtml" />
+    <Content Include="Views\Urun\Guncelle.cshtml" />
+    <Content Include="Views\Uye\Index.cshtml" />
+    <Content Include="Views\Uye\Ekle.cshtml" />
+    <Content Include="Views\Uye\Guncelle.cshtml" />
+    <Content Include="Views\Personel\Index.cshtml" />
+    <Content Include="Views\Personel\Ekle.cshtml" />
+    <Content Include="Views\Personel\Guncelle.cshtml" />
     <Content Include="Views\StokGirisCikis\Index.cshtml" />
-    <Content Include="Views\StokGirisCikis\Guncelle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

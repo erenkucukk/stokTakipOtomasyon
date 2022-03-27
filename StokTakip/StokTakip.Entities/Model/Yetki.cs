@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 
 namespace StokTakip.Entities.Model
 {
@@ -13,6 +14,6 @@ namespace StokTakip.Entities.Model
         public string YetkiAciklama { get; set; }
         public bool YetkiDurum { get; set; }
 
-        public ICollection<Uye> Uyes { get; set; }
+        public  ICollection<Personel> Personels { get; set; }
     }
 }

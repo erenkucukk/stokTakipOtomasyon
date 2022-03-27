@@ -1,0 +1,59 @@
+﻿@using StokTakip.Entities.Model
+@model List<Urun>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="margin:15px;text-align:center;color:white;background-color:#4B5860">
+    <h2><b>Ürün Listesi</b></h2>
+</div>
+
+
+
+<div style="margin:15px" class="form-group">
+    <table class="table table-bordered">
+        <thead>
+            <tr style="text-align:center; background-color:#4B5860; color:white">
+                <th>Id</th>
+                <th>Adı</th>
+                <th>Miktar</th>
+                <th>Birim</th>
+                <th>Kategori</th>
+                <th>Marka</th>
+                <th>Alış Fiyat</th>
+                <th>Toplam Fiyat</th>
+                <th>Aciklama</th>
+                <th>Ürün Durum</th>
+                <th>Stok Personel</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var urun in Model)
+            {
+                <tr style="text-align:center">
+                    <td>@urun.UrunStokKodu</td>
+                    <td>@urun.UrunAdi</td>
+                    <td>@urun.UrunMiktar</td>
+                    <td>@urun.Birim.BirimAdi</td>
+                    <td>@urun.Kategori.KategoriAdi</td>
+                    <td>@urun.Marka.MarkaAdi</td>
+                    <td>@urun.UrunAlisFiyat</td>
+                    <td>@urun.UrunToplamFiyat</td>
+                    <td>@urun.UrunAciklama</td>
+                    <td>@urun.UrunDurum</td>
+                    <td>@urun.StokPersonel</td>
+                    <td>
+                        <a class="btn btn-success" href="/Urun/Guncelle/@urun.UrunStokKodu">Güncelle</a>&nbsp;
+                        <a class="btn btn-danger" href="/Urun/Sil/@urun.UrunStokKodu">Sil</a>
+                        <a class="btn btn-warning" href="/Urun/StokHareketleri/@urun.UrunStokKodu">Stok Hareketleri</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="/Urun/Ekle/">Yeni ürün Ekle</a>
+
+</div>

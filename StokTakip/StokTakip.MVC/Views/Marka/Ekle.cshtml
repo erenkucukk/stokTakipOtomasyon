@@ -11,6 +11,8 @@
 <div style="margin:15px" class="form-group">
     @using (Html.BeginForm("Ekle", "Marka", FormMethod.Post))
     {
+
+
         @Html.Label("Marka Adı")
         @Html.TextBoxFor(x => x.MarkaAdi, new { @class = "form-control" })
         <br />
