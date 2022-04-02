@@ -1,0 +1,22 @@
+﻿@model StokTakip.Entities.Model.Urun
+@{
+    ViewBag.Title = "MiktarEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Stok Giris</h2>
+
+<div class="form-group" style="margin:15px">
+    @using (Html.BeginForm("MiktarEkle", "Urun", FormMethod.Post))
+    {
+        @Html.Label("stok")
+        @Html.TextBoxFor(x => x.UrunId, new { @class = "form-control" })
+
+        @Html.Label("Ürün Miktar")
+        @Html.TextBoxFor(x => x.UrunMiktar, new { @class = "form-control" })
+
+        <br />
+        <button class="btn btn-success">Stok Gir</button>
+    }
+</div>
+

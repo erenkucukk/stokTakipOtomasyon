@@ -9,10 +9,10 @@ namespace StokTakip.Entities.Mapping
         public UrunMap()
         {
             this.ToTable("tblUrun");
-            this.Property(p => p.UrunStokKodu).HasColumnType("int");
-            this.Property(p => p.UrunStokKodu).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            this.Property(p => p.UrunId).HasColumnType("int");
+            this.Property(p => p.UrunId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             this.Property(p => p.UrunAdi).HasColumnType("varchar").HasMaxLength(100);
-            this.Property(p => p.UrunAlisFiyat).HasColumnType("money");
+            this.Property(p => p.UrunSatisFiyat).HasColumnType("money");
             this.Property(p => p.UrunToplamFiyat).HasColumnType("money");
             this.Property(p => p.UrunMiktar).HasColumnType("int");
             this.Property(p => p.UrunBirimId).HasColumnType("int");

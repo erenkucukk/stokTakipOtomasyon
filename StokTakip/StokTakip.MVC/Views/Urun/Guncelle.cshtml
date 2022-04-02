@@ -6,14 +6,14 @@
 }
 
 <div style="margin:15px;text-align:center;color:#4B5860">
-    <h2><b>@Model.UrunStokKodu Güncelle</b></h2>
+    <h2><b>@Model.UrunId Güncelle</b></h2>
 </div>
 
 
 <div class="form-group" style="margin:15px">
     @using (Html.BeginForm("Guncelle", "Urun", FormMethod.Post))
     {
-        @Html.HiddenFor(x => x.UrunStokKodu)
+        @Html.HiddenFor(x => x.UrunId)
 
         @Html.Label("Ürün Adı")
         @Html.TextBoxFor(x => x.UrunAdi, new { @class = "form-control" })
@@ -30,17 +30,15 @@
         @Html.Label("Marka")
         @Html.DropDownListFor(x => x.UrunMarkaId, (List<SelectListItem>)ViewBag.Markalar, new { @class = "form-control" })
         <br />
-        @Html.Label("UrunAlisFiyat")
-        @Html.TextBoxFor(x => x.UrunAlisFiyat, new { @class = "form-control" })
+        @Html.Label("Satış Fiyatı")
+        @Html.TextBoxFor(x => x.UrunSatisFiyat, new { @class = "form-control" })
         <br />
-        @Html.Label("UrunToplamFiyat")
+        @Html.Label("Toplam Fiyat")
         @Html.TextBoxFor(x => x.UrunToplamFiyat, new { @class = "form-control" })
         <br />
-        @Html.Label("UrunAciklama")
+        @Html.Label("Açıklama")
         @Html.TextBoxFor(x => x.UrunAciklama, new { @class = "form-control" })
-        <br />
-        @Html.Label("StokPersonel")
-        @Html.TextBoxFor(x => x.StokPersonel, new { @class = "form-control" })
+
 
         <br />
         <button class="btn btn-success">Ürün Güncelle</button>

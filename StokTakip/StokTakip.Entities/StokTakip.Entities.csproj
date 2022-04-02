@@ -62,37 +62,13 @@
     <Compile Include="Mapping\KategoriMap.cs" />
     <Compile Include="Mapping\MarkaMap.cs" />
     <Compile Include="Mapping\PersonelMap.cs" />
-    <Compile Include="Mapping\StokGirisCikisMap.cs" />
+    <Compile Include="Mapping\StokHareketMap.cs" />
     <Compile Include="Mapping\UrunMap.cs" />
     <Compile Include="Mapping\UyeMap.cs" />
     <Compile Include="Mapping\YetkiMap.cs" />
-    <Compile Include="Migrations\202203021253131_DatabaseOlustur.cs" />
-    <Compile Include="Migrations\202203021253131_DatabaseOlustur.designer.cs">
-      <DependentUpon>202203021253131_DatabaseOlustur.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203151337270_Guncelleme01.cs" />
-    <Compile Include="Migrations\202203151337270_Guncelleme01.designer.cs">
-      <DependentUpon>202203151337270_Guncelleme01.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203151916561_Güncelleme02.cs" />
-    <Compile Include="Migrations\202203151916561_Güncelleme02.designer.cs">
-      <DependentUpon>202203151916561_Güncelleme02.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203201044189_Guncelleme03.cs" />
-    <Compile Include="Migrations\202203201044189_Guncelleme03.designer.cs">
-      <DependentUpon>202203201044189_Guncelleme03.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203201441108_Guncelleme04.cs" />
-    <Compile Include="Migrations\202203201441108_Guncelleme04.designer.cs">
-      <DependentUpon>202203201441108_Guncelleme04.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203201556324_Guncelleme05.cs" />
-    <Compile Include="Migrations\202203201556324_Guncelleme05.designer.cs">
-      <DependentUpon>202203201556324_Guncelleme05.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202203211153493_Guncelleme06.cs" />
-    <Compile Include="Migrations\202203211153493_Guncelleme06.designer.cs">
-      <DependentUpon>202203211153493_Guncelleme06.cs</DependentUpon>
+    <Compile Include="Migrations\202203281314003_DatabaseSonHal.cs" />
+    <Compile Include="Migrations\202203281314003_DatabaseSonHal.designer.cs">
+      <DependentUpon>202203281314003_DatabaseSonHal.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AltKategori.cs" />
@@ -103,7 +79,7 @@
     <Compile Include="Model\Kategori.cs" />
     <Compile Include="Model\Marka.cs" />
     <Compile Include="Model\Personel.cs" />
-    <Compile Include="Model\StokGirisCikis.cs" />
+    <Compile Include="Model\StokHareket.cs" />
     <Compile Include="Model\StokTakipContext.cs" />
     <Compile Include="Model\Urun.cs" />
     <Compile Include="Model\Uye.cs" />
@@ -115,30 +91,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202203021253131_DatabaseOlustur.resx">
-      <DependentUpon>202203021253131_DatabaseOlustur.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203151337270_Guncelleme01.resx">
-      <DependentUpon>202203151337270_Guncelleme01.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203151916561_Güncelleme02.resx">
-      <DependentUpon>202203151916561_Güncelleme02.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203201044189_Guncelleme03.resx">
-      <DependentUpon>202203201044189_Guncelleme03.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203201441108_Guncelleme04.resx">
-      <DependentUpon>202203201441108_Guncelleme04.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203201556324_Guncelleme05.resx">
-      <DependentUpon>202203201556324_Guncelleme05.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202203211153493_Guncelleme06.resx">
-      <DependentUpon>202203211153493_Guncelleme06.cs</DependentUpon>
-    </EmbeddedResource>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <EmbeddedResource Include="Migrations\202203281314003_DatabaseSonHal.resx">
+      <DependentUpon>202203281314003_DatabaseSonHal.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

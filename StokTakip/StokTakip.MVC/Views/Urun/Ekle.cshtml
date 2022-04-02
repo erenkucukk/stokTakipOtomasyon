@@ -27,18 +27,16 @@
         @Html.Label("Marka")
         @Html.DropDownListFor(x => x.UrunMarkaId, (List<SelectListItem>)ViewBag.Markalar, "----Seçiniz----", new { @class = "form-control" })
         <br />
-        @Html.Label("UrunAlisFiyat")
-        @Html.TextBoxFor(x => x.UrunAlisFiyat, new { @class = "form-control" })
+        @Html.Label("Satış Fiyatı")
+        @Html.TextBoxFor(x => x.UrunSatisFiyat, new { @class = "form-control" })
         <br />
-        @Html.Label("UrunToplamFiyat")
+        @Html.Label("Toplam Fiyat")
         @Html.TextBoxFor(x => x.UrunToplamFiyat, new { @class = "form-control" })
         <br />
-        @Html.Label("UrunAciklama")
+        @Html.Label("Açıklama")
         @Html.TextBoxFor(x => x.UrunAciklama, new { @class = "form-control" })
         <br />
-        @Html.Label("StokPersonel")
-        @Html.TextBoxFor(x => x.StokPersonel, new { @class = "form-control" })
-        <br />
+
         <button class="btn btn-success">Ürün Ekle</button>
     }
 </div>

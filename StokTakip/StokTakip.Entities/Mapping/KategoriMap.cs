@@ -13,7 +13,7 @@ namespace StokTakip.Entities.Mapping
     {
         public KategoriMap()
         {
-            this.ToTable("tblKtegori");
+            this.ToTable("tblKategori");
             this.Property(p => p.KategoriId).HasColumnType("int");
             this.Property(p => p.KategoriId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             this.Property(p => p.KategoriAdi).HasColumnType("varchar").HasMaxLength(100);

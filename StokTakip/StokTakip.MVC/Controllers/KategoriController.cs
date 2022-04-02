@@ -1,4 +1,5 @@
 ﻿using StokTakip.Entities.Model;
+using StokTakip.MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace StokTakip.MVC.Controllers
     {
         StokTakipContext db = new StokTakipContext();
 
-        // GET: Kategori
+        // GET: Kategori db.Kategoris.Where(x => x.KategoriDurum == true).ToList();Login.Kategoris.Where(x => x.KategoriDurum == true).ToList();
         public ActionResult Index()
         {
             List<Kategori> kategoriler = db.Kategoris.Where(x => x.KategoriDurum == true).ToList();

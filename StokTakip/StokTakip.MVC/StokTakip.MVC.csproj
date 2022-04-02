@@ -133,12 +133,13 @@
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\MarkaController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
-    <Compile Include="Controllers\StokGirisCikisController.cs" />
+    <Compile Include="Controllers\StokHareketController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Controllers\UyeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2636,11 +2637,12 @@
     <Content Include="Views\Personel\Index.cshtml" />
     <Content Include="Views\Personel\Ekle.cshtml" />
     <Content Include="Views\Personel\Guncelle.cshtml" />
-    <Content Include="Views\StokGirisCikis\Index.cshtml" />
+    <Content Include="Views\StokHareket\Index.cshtml" />
+    <Content Include="Views\StokHareket\StokGiris.cshtml" />
+    <Content Include="Views\Urun\MiktarEkle.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

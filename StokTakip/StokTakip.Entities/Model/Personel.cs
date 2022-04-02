@@ -21,5 +21,7 @@ namespace StokTakip.Entities.Model
         public int YetkiId { get; set; }
         public virtual Yetki Yetki { get; set; }
 
+        public virtual ICollection<StokHareket> StokHarekets { get; set; }
+
     }
 }

@@ -21,35 +21,37 @@
                 <th>Birim</th>
                 <th>Kategori</th>
                 <th>Marka</th>
-                <th>Alış Fiyat</th>
+                <th>Satış Fiyat</th>
                 <th>Toplam Fiyat</th>
                 <th>Aciklama</th>
                 <th>Ürün Durum</th>
-                <th>Stok Personel</th>
                 <th>İşlem</th>
+                <th>Hareket</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var urun in Model)
             {
-                <tr style="text-align:center">
-                    <td>@urun.UrunStokKodu</td>
-                    <td>@urun.UrunAdi</td>
-                    <td>@urun.UrunMiktar</td>
-                    <td>@urun.Birim.BirimAdi</td>
-                    <td>@urun.Kategori.KategoriAdi</td>
-                    <td>@urun.Marka.MarkaAdi</td>
-                    <td>@urun.UrunAlisFiyat</td>
-                    <td>@urun.UrunToplamFiyat</td>
-                    <td>@urun.UrunAciklama</td>
-                    <td>@urun.UrunDurum</td>
-                    <td>@urun.StokPersonel</td>
-                    <td>
-                        <a class="btn btn-success" href="/Urun/Guncelle/@urun.UrunStokKodu">Güncelle</a>&nbsp;
-                        <a class="btn btn-danger" href="/Urun/Sil/@urun.UrunStokKodu">Sil</a>
-                        <a class="btn btn-warning" href="/Urun/StokHareketleri/@urun.UrunStokKodu">Stok Hareketleri</a>
-                    </td>
-                </tr>
+            <tr style="text-align:center">
+                <td>@urun.UrunId</td>
+                <td>@urun.UrunAdi</td>
+                <td>@urun.UrunMiktar</td>
+                <td>@urun.Birim.BirimAdi</td>
+                <td>@urun.Kategori.KategoriAdi</td>
+                <td>@urun.Marka.MarkaAdi</td>
+                <td>@urun.UrunSatisFiyat</td>
+                <td>@urun.UrunToplamFiyat</td>
+                <td>@urun.UrunAciklama</td>
+                <td>@urun.UrunDurum</td>
+                <td>
+                    <a class="btn btn-warning" href="/Urun/Guncelle/@urun.UrunId">Güncelle</a>
+                    <a class="btn btn-success" href="/StokHareket/StokGiris/@urun.UrunId">Giriş</a>
+                    <a class="btn btn-danger" href="/StokHareket/StokCikis/@urun.UrunId">Çıkış</a>
+                </td>
+                <td>
+                    <a class="btn btn-warning"  href="/Urun/StokHareket/@urun.UrunId">Hareket</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

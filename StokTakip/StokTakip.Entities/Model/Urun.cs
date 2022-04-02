@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace StokTakip.Entities.Model
 {
@@ -9,7 +10,7 @@ namespace StokTakip.Entities.Model
         /// </summary>
 
         [Key]
-        public int UrunStokKodu { get; set; }
+        public int UrunId { get; set; }
         public string UrunAdi { get; set; }
         public int UrunMiktar { get; set; }
         public int UrunBirimId { get; set; }
@@ -18,12 +19,12 @@ namespace StokTakip.Entities.Model
         public virtual Kategori Kategori { get; set; }
         public int UrunMarkaId { get; set; }
         public virtual Marka Marka { get; set; }
-        public int UrunAlisFiyat { get; set; }
-        public int UrunToplamFiyat { get; set; }
+        public int UrunSatisFiyat { get; set; }
         public string UrunAciklama { get; set; }
-        public int Stokİslem { get; set; }
-        public int StokPersonel { get; set; }
+ 
         public bool UrunDurum { get; set; }
+
+        public virtual ICollection<StokHareket> StokHarekets { get; set; }
 
     }
 }

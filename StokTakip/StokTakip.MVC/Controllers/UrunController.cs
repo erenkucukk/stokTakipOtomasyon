@@ -1,4 +1,5 @@
 ﻿using StokTakip.Entities.Model;
+using StokTakip.MVC.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace StokTakip.MVC.Controllers
     {
         StokTakipContext db = new StokTakipContext();
 
-        // GET: Urun
+        // GET: Urun 
         public ActionResult Index()
         {
             List<Urun> urunler = db.Uruns.Where(x => x.UrunDurum).ToList();
@@ -30,7 +31,7 @@ namespace StokTakip.MVC.Controllers
                                                 Text = s.BirimAdi
                                             }).ToList();
 
-            List<SelectListItem> kategoriler = db.Kategoris.AsNoTracking().Where(b => b.KategoriDurum == true)
+            List<SelectListItem> kategoriler = db.Kategoris.Where(x=>x.KategoriDurum == true)
                                             .Select(s => new SelectListItem
                                             {
                                                 Value = s.KategoriId.ToString(),
@@ -113,19 +114,35 @@ namespace StokTakip.MVC.Controllers
         [HttpPost]
         public ActionResult Guncelle(Urun pUrun)
         {
-            Urun urun = db.Uruns.Find(pUrun.UrunStokKodu);
+            Urun urun = db.Uruns.Find(pUrun.UrunId);
             urun.UrunAciklama = pUrun.UrunAciklama;
             urun.UrunAdi = pUrun.UrunAdi;
             urun.UrunAdi = pUrun.UrunAdi;
             urun.UrunMarkaId = pUrun.UrunMarkaId;
             urun.UrunMiktar = pUrun.UrunMiktar;
             urun.UrunKategoriId = pUrun.UrunKategoriId;
-            urun.UrunAlisFiyat = pUrun.UrunAlisFiyat;
+            urun.UrunSatisFiyat = pUrun.UrunSatisFiyat;
             urun.UrunToplamFiyat = pUrun.UrunToplamFiyat;
             urun.StokPersonel = pUrun.StokPersonel;
             urun.UrunDurum = true;
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult MiktarEkle(int id)
+        {
+            var model = db.Uruns.Find(id);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult MiktarEkle(Urun p)
+        {
+            var model = db.Uruns.Find(p.UrunId);
+            model.UrunMiktar = model.UrunMiktar + p.UrunMiktar;
+            db.SaveChanges();
+            return View(db.Uruns.ToList());
         }
     }
 }
