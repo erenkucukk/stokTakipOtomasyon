@@ -13,13 +13,10 @@ namespace StokTakip.Entities.Mapping
             this.Property(p => p.UrunId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             this.Property(p => p.UrunAdi).HasColumnType("varchar").HasMaxLength(100);
             this.Property(p => p.UrunSatisFiyat).HasColumnType("money");
-            this.Property(p => p.UrunToplamFiyat).HasColumnType("money");
             this.Property(p => p.UrunMiktar).HasColumnType("int");
             this.Property(p => p.UrunBirimId).HasColumnType("int");
             this.Property(p => p.UrunMarkaId).HasColumnType("int");
             this.Property(p => p.UrunAciklama).HasColumnType("varchar").HasMaxLength(100);
-            this.Property(p => p.Stokİslem).HasColumnType("int");
-            this.Property(p => p.StokPersonel).HasColumnType("int");
 
             this.HasRequired(p => p.Birim).WithMany(p => p.Uruns).HasForeignKey(p => p.UrunBirimId);
             this.HasRequired(p => p.Kategori).WithMany(p => p.Uruns).HasForeignKey(p => p.UrunKategoriId);

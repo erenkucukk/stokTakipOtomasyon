@@ -31,7 +31,7 @@ namespace StokTakip.MVC.Controllers
                                                 Text = s.BirimAdi
                                             }).ToList();
 
-            List<SelectListItem> kategoriler = db.Kategoris.Where(x=>x.KategoriDurum == true)
+            List<SelectListItem> kategoriler = db.Kategoris.Where(x => x.KategoriDurum == true)
                                             .Select(s => new SelectListItem
                                             {
                                                 Value = s.KategoriId.ToString(),
@@ -66,15 +66,7 @@ namespace StokTakip.MVC.Controllers
             return RedirectToAction("Index");
         }
 
-        // Sil
 
-        public ActionResult Sil(int id)
-        {
-            Urun urun = db.Uruns.Find(id);
-            urun.UrunDurum = false;
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
 
         // Urun Güncelle
 
@@ -84,11 +76,11 @@ namespace StokTakip.MVC.Controllers
             Urun urun = db.Uruns.Find(id);
 
             List<SelectListItem> birimler = db.Birims.AsNoTracking().Where(b => b.BirimDurum == true)
-                                .Select(s => new SelectListItem
-                                {
-                                    Value = s.BirimId.ToString(),
-                                    Text = s.BirimAdi
-                                }).ToList();
+                                            .Select(s => new SelectListItem
+                                            {
+                                                Value = s.BirimId.ToString(),
+                                                Text = s.BirimAdi
+                                            }).ToList();
 
             List<SelectListItem> kategoriler = db.Kategoris.AsNoTracking().Where(b => b.KategoriDurum == true)
                                             .Select(s => new SelectListItem
@@ -96,7 +88,7 @@ namespace StokTakip.MVC.Controllers
                                                 Value = s.KategoriId.ToString(),
                                                 Text = s.KategoriAdi
                                             }).ToList();
-            
+
             List<SelectListItem> markalar = db.Markas.AsNoTracking().Where(b => b.MarkaDurum == true)
                                             .Select(s => new SelectListItem
                                             {
@@ -122,27 +114,10 @@ namespace StokTakip.MVC.Controllers
             urun.UrunMiktar = pUrun.UrunMiktar;
             urun.UrunKategoriId = pUrun.UrunKategoriId;
             urun.UrunSatisFiyat = pUrun.UrunSatisFiyat;
-            urun.UrunToplamFiyat = pUrun.UrunToplamFiyat;
-            urun.StokPersonel = pUrun.StokPersonel;
             urun.UrunDurum = true;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
-        public ActionResult MiktarEkle(int id)
-        {
-            var model = db.Uruns.Find(id);
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult MiktarEkle(Urun p)
-        {
-            var model = db.Uruns.Find(p.UrunId);
-            model.UrunMiktar = model.UrunMiktar + p.UrunMiktar;
-            db.SaveChanges();
-            return View(db.Uruns.ToList());
-        }
     }
 }

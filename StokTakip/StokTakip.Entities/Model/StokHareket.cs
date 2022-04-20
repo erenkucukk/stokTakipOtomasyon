@@ -16,11 +16,11 @@ namespace StokTakip.Entities.Model
         public int UrunMiktar { get; set; }
         public int UrunAlisFiyat { get; set; }
         public int UrunSatisFiyat { get; set; }
-        public int UrunBirimFiyat { get; set; }
+        public float UrunSonFiyat { get; set; }
+        public float Iskonto { get; set; }
         public DateTime Tarih { get; set; }
         public bool Durum { get; set; }
         public bool HareketTipi { get; set; }
-        public int StokPersonel { get; set; }
 
         public virtual Urun Urun { get; set; }
         public virtual Personel Personel { get; set; }

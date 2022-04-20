@@ -70,6 +70,26 @@
     <Compile Include="Migrations\202203281314003_DatabaseSonHal.designer.cs">
       <DependentUpon>202203281314003_DatabaseSonHal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204021159435_Guncelleme01.cs" />
+    <Compile Include="Migrations\202204021159435_Guncelleme01.designer.cs">
+      <DependentUpon>202204021159435_Guncelleme01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204021234148_Guncelleme02.cs" />
+    <Compile Include="Migrations\202204021234148_Guncelleme02.designer.cs">
+      <DependentUpon>202204021234148_Guncelleme02.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204061138561_Guncelleme03.cs" />
+    <Compile Include="Migrations\202204061138561_Guncelleme03.designer.cs">
+      <DependentUpon>202204061138561_Guncelleme03.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204061150324_Guncelleme04.cs" />
+    <Compile Include="Migrations\202204061150324_Guncelleme04.designer.cs">
+      <DependentUpon>202204061150324_Guncelleme04.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204070718159_Guncelleme05.cs" />
+    <Compile Include="Migrations\202204070718159_Guncelleme05.designer.cs">
+      <DependentUpon>202204070718159_Guncelleme05.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AltKategori.cs" />
     <Compile Include="Model\Birim.cs" />
@@ -96,6 +116,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202203281314003_DatabaseSonHal.resx">
       <DependentUpon>202203281314003_DatabaseSonHal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204021159435_Guncelleme01.resx">
+      <DependentUpon>202204021159435_Guncelleme01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204021234148_Guncelleme02.resx">
+      <DependentUpon>202204021234148_Guncelleme02.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204061138561_Guncelleme03.resx">
+      <DependentUpon>202204061138561_Guncelleme03.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204061150324_Guncelleme04.resx">
+      <DependentUpon>202204061150324_Guncelleme04.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204070718159_Guncelleme05.resx">
+      <DependentUpon>202204070718159_Guncelleme05.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -2627,7 +2627,6 @@
     <Content Include="Views\Kategori\Guncelle.cshtml" />
     <Content Include="Views\AltKategori\Ekle.cshtml" />
     <Content Include="Views\AltKategori\Guncelle.cshtml" />
-    <Content Include="Views\Urun\Sil.cshtml" />
     <Content Include="Views\Urun\Ekle.cshtml" />
     <Content Include="Views\Urun\Index.cshtml" />
     <Content Include="Views\Urun\Guncelle.cshtml" />
@@ -2639,7 +2638,7 @@
     <Content Include="Views\Personel\Guncelle.cshtml" />
     <Content Include="Views\StokHareket\Index.cshtml" />
     <Content Include="Views\StokHareket\StokGiris.cshtml" />
-    <Content Include="Views\Urun\MiktarEkle.cshtml" />
+    <Content Include="Views\StokHareket\StokCikis.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

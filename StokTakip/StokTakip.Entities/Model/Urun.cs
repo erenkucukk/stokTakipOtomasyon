@@ -21,7 +21,6 @@ namespace StokTakip.Entities.Model
         public virtual Marka Marka { get; set; }
         public int UrunSatisFiyat { get; set; }
         public string UrunAciklama { get; set; }
- 
         public bool UrunDurum { get; set; }
 
         public virtual ICollection<StokHareket> StokHarekets { get; set; }

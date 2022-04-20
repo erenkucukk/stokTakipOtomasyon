@@ -22,16 +22,13 @@
         @Html.DropDownListFor(x => x.UrunBirimId, (List<SelectListItem>)ViewBag.Birimler, "----Seçiniz----", new { @class = "form-control" })
         <br />
         @Html.Label("Kategori")
-        @Html.DropDownListFor(x => x.UrunKategoriId, (List<SelectListItem>)ViewBag.Kategoriler,"----Seçiniz----", new { @class = "form-control" })
+        @Html.DropDownListFor(x => x.UrunKategoriId, (List<SelectListItem>)ViewBag.Kategoriler, "----Seçiniz----", new { @class = "form-control" })
         <br />
         @Html.Label("Marka")
         @Html.DropDownListFor(x => x.UrunMarkaId, (List<SelectListItem>)ViewBag.Markalar, "----Seçiniz----", new { @class = "form-control" })
         <br />
         @Html.Label("Satış Fiyatı")
         @Html.TextBoxFor(x => x.UrunSatisFiyat, new { @class = "form-control" })
-        <br />
-        @Html.Label("Toplam Fiyat")
-        @Html.TextBoxFor(x => x.UrunToplamFiyat, new { @class = "form-control" })
         <br />
         @Html.Label("Açıklama")
         @Html.TextBoxFor(x => x.UrunAciklama, new { @class = "form-control" })

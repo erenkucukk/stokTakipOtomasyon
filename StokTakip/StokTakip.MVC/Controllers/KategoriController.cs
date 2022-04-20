@@ -12,7 +12,7 @@ namespace StokTakip.MVC.Controllers
     {
         StokTakipContext db = new StokTakipContext();
 
-        // GET: Kategori db.Kategoris.Where(x => x.KategoriDurum == true).ToList();Login.Kategoris.Where(x => x.KategoriDurum == true).ToList();
+        // GET: Kategori
         public ActionResult Index()
         {
             List<Kategori> kategoriler = db.Kategoris.Where(x => x.KategoriDurum == true).ToList();

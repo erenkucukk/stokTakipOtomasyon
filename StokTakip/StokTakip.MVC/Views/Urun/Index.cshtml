@@ -22,7 +22,6 @@
                 <th>Kategori</th>
                 <th>Marka</th>
                 <th>Satış Fiyat</th>
-                <th>Toplam Fiyat</th>
                 <th>Aciklama</th>
                 <th>Ürün Durum</th>
                 <th>İşlem</th>
@@ -39,8 +38,7 @@
                 <td>@urun.Birim.BirimAdi</td>
                 <td>@urun.Kategori.KategoriAdi</td>
                 <td>@urun.Marka.MarkaAdi</td>
-                <td>@urun.UrunSatisFiyat</td>
-                <td>@urun.UrunToplamFiyat</td>
+                <td>@urun.UrunSatisFiyat₺</td>
                 <td>@urun.UrunAciklama</td>
                 <td>@urun.UrunDurum</td>
                 <td>
@@ -49,7 +47,7 @@
                     <a class="btn btn-danger" href="/StokHareket/StokCikis/@urun.UrunId">Çıkış</a>
                 </td>
                 <td>
-                    <a class="btn btn-warning"  href="/Urun/StokHareket/@urun.UrunId">Hareket</a>
+                    <a class="btn btn-warning"  href="/StokHareket/Index/">Hareket</a>
                 </td>
             </tr>
             }

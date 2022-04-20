@@ -25,30 +25,49 @@
                 <th>Hareket Id</th>
                 <th>İşlem Tarihi</th>
                 <th>Ürün Adı</th>
-                <th>Alış Fiyatı</th>
                 <th>Miktarı</th>
+                <th>Alış Fiyatı</th>
+                <th>Satış Fiyatı</th>
+                <th>İskonto Oranı</th>
+                <th>Son Fiyatı</th>
+                <th>Personel</th>
+                <th>Tip</th>
                 <th>Giriş - Çıkış</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var stkHrkt in Model)
             {
-                <tr style="text-align:center">
-                    <td>@stkHrkt.HareketId</td>
-                    <td>@stkHrkt.Tarih.ToString("dd.MM.yyyy")</td>
-                    <td>@stkHrkt.Urun.UrunAdi</td>
-                    <td>@stkHrkt.UrunAlisFiyat</td>
-                    <td>@stkHrkt.UrunMiktar</td>
-                    <td>
-                        <a class="btn btn-success" href="/KitapHareket/StokGiris/@stkHrkt.HareketId">Ekle</a>
-                        <a class="btn btn-primary" href="/KitapHareket/StokCikis/@stkHrkt.HareketId">Stok Düş</a>
-                    </td>
-                </tr>
+                #region // bazı işlemler
+                string renk = "green", tip = "Giriş";
+                if (!stkHrkt.HareketTipi)
+                {
+                    renk = "red";
+                    tip = "Çıkış";
+                }
+                #endregion
+
+            <tr style="text-align:center; color:@renk">
+                <td>@stkHrkt.HareketId</td>
+                <td>@stkHrkt.Tarih.ToString("dd.MM.yyyy")</td>
+                <td>@stkHrkt.Urun.UrunAdi</td>
+                <td>@stkHrkt.UrunMiktar</td>
+                <td>@stkHrkt.UrunAlisFiyat₺</td>
+                <td>@stkHrkt.UrunSatisFiyat₺</td>
+                <td>%@stkHrkt.Iskonto</td>
+                <td>@stkHrkt.UrunSonFiyat₺</td>
+                <td>@stkHrkt.Personel.PersonelAdi @stkHrkt.Personel.PersonelSoyadi</td>
+                <td>@tip</td>
+                <td>
+                    <a class="btn btn-success" href="/StokHareket/StokGiris/@stkHrkt.Urun.UrunId">Ekle</a>
+                    <a class="btn btn-primary" href="/StokHareket/StokCikis/@stkHrkt.Urun.UrunId">Stok Düş</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
 
-    
+
 
 </div>
 
