@@ -7,13 +7,13 @@ namespace StokTakip.Entities.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class Guncelleme05 : IMigrationMetadata
+    public sealed partial class databaseSonHal : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Guncelleme05));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(databaseSonHal));
         
         string IMigrationMetadata.Id
         {
-            get { return "202204070718159_Guncelleme05"; }
+            get { return "202204210706358_databaseSonHal"; }
         }
         
         string IMigrationMetadata.Source

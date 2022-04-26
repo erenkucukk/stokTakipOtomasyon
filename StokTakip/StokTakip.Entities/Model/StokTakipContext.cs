@@ -26,6 +26,8 @@ namespace StokTakip.Entities.Model
             modelBuilder.Configurations.Add(new UrunMap());
             modelBuilder.Configurations.Add(new UyeMap());
             modelBuilder.Configurations.Add(new YetkiMap());
+            modelBuilder.Configurations.Add(new SepetMap());
+            modelBuilder.Configurations.Add(new SatisMap());
         }
 
         public DbSet<Kategori> Kategoris { get; set; }
@@ -38,7 +40,10 @@ namespace StokTakip.Entities.Model
         public DbSet<Personel> Personels { get; set; }
         public DbSet<StokHareket> StokHarekets { get; set; }
         public DbSet<Urun> Uruns { get; set; }
+        public DbSet<Satis> Satiss { get; set; }
         public DbSet<Uye> Uyes { get; set; }
         public DbSet<Yetki> Yetkis { get; set; }
+        public DbSet<Sepet> Sepets { get; set; }
+
     }
 }

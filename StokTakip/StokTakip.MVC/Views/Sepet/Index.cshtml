@@ -1,0 +1,44 @@
+﻿@using StokTakip.Entities.Model
+@model List<Sepet>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="text-align:center;background-color:#4B5860;color:white;margin:15px">
+    <h2><b>Sepetim</b></h2>
+</div>
+
+<div style="margin:15px" class="form-group">
+    <table class="table table-bordered">
+        <thead>
+            <tr style="text-align:center; background-color:#4B5860; color:white">
+                <th>PersonelId</th>
+                <th>Ürün Bilgisi(kategori - marka - id - ad)</th>
+                <th>Birim Fiyatı</th>
+                <th>Miktar</th>
+                <th>ToplamFiyat</th>
+                <th>Tarih</th>
+                <th>SepetDurum</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var spt in Model)
+            {
+                <tr style="text-align:center">
+                    <td>@spt.Personel.PersonelAdi @spt.Personel.PersonelSoyadi</td>
+                    <td>@spt.Urun.Kategori.KategoriAdi - @spt.Urun.Marka.MarkaAdi - @spt.Urun.UrunId - @spt.Urun.UrunAdi</td>
+                    <td>@spt.BirimFiyat</td>
+                    <td>@spt.Miktar</td>
+                    <td>@spt.ToplamFiyat</td>
+                    <td>@spt.Tarih</td>
+                    <td>@spt.SepetDurum</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    @ViewBag.Tutar
+    <br />
+    <a class="btn btn-primary" href="/Sepet/Ekle/">Ürün Seç</a>
+</div>
+

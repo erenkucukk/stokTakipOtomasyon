@@ -23,6 +23,7 @@ namespace StokTakip.Entities.Model
         public string UrunAciklama { get; set; }
         public bool UrunDurum { get; set; }
 
+        public virtual ICollection<Sepet> Sepets { get; set; }
         public virtual ICollection<StokHareket> StokHarekets { get; set; }
 
     }

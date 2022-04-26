@@ -15,7 +15,7 @@ namespace StokTakip.MVC.Controllers
         // GET: StokHareket
         public ActionResult Index()
         {
-            List<StokHareket> stokHareketler = db.StokHarekets.Where(x => x.Durum).ToList();
+            List<StokHareket> stokHareketler = db.StokHarekets.Where(x => x.Durum== true).ToList();
             return View(stokHareketler);
 
         }

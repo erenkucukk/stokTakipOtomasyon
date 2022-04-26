@@ -13,5 +13,6 @@ namespace StokTakip.Entities.Model
         public string BirimAciklama { get; set; }
         public bool BirimDurum { get; set; }
         public virtual ICollection<Urun> Uruns { get; set; }
+
     }
 }

@@ -22,6 +22,7 @@ namespace StokTakip.Entities.Model
         public virtual Yetki Yetki { get; set; }
 
         public virtual ICollection<StokHareket> StokHarekets { get; set; }
+        public virtual ICollection<Sepet> Sepets { get; set; }
 
     }
 }

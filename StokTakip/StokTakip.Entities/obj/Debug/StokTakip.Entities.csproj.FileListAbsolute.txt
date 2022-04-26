@@ -50,10 +50,5 @@ C:\Users\erenk\Documents\medipol\YonCalisma\deneme\StokTakip.Entities\obj\Debug\
 C:\Users\erenk\Documents\medipol\YonCalisma\deneme\StokTakip.Entities\obj\Debug\StokTakip.Entities.csproj.CoreCompileInputs.cache
 C:\Users\erenk\Documents\medipol\YonCalisma\deneme\StokTakip.Entities\obj\Debug\StokTakip.Entities.dll
 C:\Users\erenk\Documents\medipol\YonCalisma\deneme\StokTakip.Entities\obj\Debug\StokTakip.Entities.pdb
-C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.Entities\obj\Debug\StokTakip.Entities.Migrations.DatabaseSonHal.resources
+C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.Entities\obj\Debug\StokTakip.Entities.Migrations.databaseSonHal.resources
 C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.Entities\obj\Debug\StokTakip.Entities.csproj.GenerateResource.cache
-C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.Entities\obj\Debug\StokTakip.Entities.Migrations.Guncelleme01.resources
-C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.Entities\obj\Debug\StokTakip.Entities.Migrations.Guncelleme02.resources
-C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.Entities\obj\Debug\StokTakip.Entities.Migrations.Guncelleme03.resources
-C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.Entities\obj\Debug\StokTakip.Entities.Migrations.Guncelleme04.resources
-C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.Entities\obj\Debug\StokTakip.Entities.Migrations.Guncelleme05.resources
