@@ -12,6 +12,7 @@ namespace StokTakip.Entities.Mapping
             this.Property(p => p.SatisId).HasColumnType("int");
             this.Property(p => p.SatisId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             this.Property(p => p.UrunNo).HasColumnType("int");
+            this.Property(p => p.PersonelNo).HasColumnType("int");
             this.Property(p => p.SepetNo).HasColumnType("int");
             this.Property(p => p.BarkodNo).HasColumnType("int");
             this.Property(p => p.BirimFiyat).HasColumnType("money");
@@ -21,7 +22,9 @@ namespace StokTakip.Entities.Mapping
             this.Property(p => p.BirimNo).HasColumnType("int");
             this.Property(p => p.Tarih).HasColumnType("date");
 
-            this.HasRequired(p => p.Sepet).WithMany(p => p.Satiss).HasForeignKey(p => p.SepetNo);
+
+            this.HasRequired(p => p.Personel).WithMany(p => p.Satiss).HasForeignKey(p => p.PersonelNo);
+            this.HasRequired(p => p.Urun).WithMany(p => p.Satiss).HasForeignKey(p => p.UrunNo);
 
         }
     }

@@ -1,0 +1,48 @@
+﻿@using StokTakip.Entities.Model
+@model List<Satis>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="text-align:center;background-color:#4B5860;color:white;margin:15px">
+    <h2><b>Satış Listesi</b></h2>
+</div>
+
+<div style="margin:15px" class="form-group">
+    <table class="table table-bordered">
+        <thead>
+            <tr style="text-align:center; background-color:#4B5860; color:white">
+                <th>Id</th>
+                <th>Personel Ad Soyad</th>
+                <th>Ürün Adı</th>
+                <th>Barkod No</th>
+                <th>Birim Fiyatı</th>
+                <th>Miktarı</th>
+                <th>Toplam Fiyatı</th>
+                <th>İskonto</th>
+                <th>Birim</th>
+                <th>Tarih</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var satis in Model)
+            {
+                <tr style="text-align:center">
+                    <td>@satis.SatisId</td>
+                    <td>@satis.Personel.PersonelAdi @satis.Personel.PersonelSoyadi</td>
+                    <td>@satis.Urun.UrunAdi</td>
+                    <td>@satis.BarkodNo</td>
+                    <td>@satis.BirimFiyat</td>
+                    <td>@satis.Miktar</td>
+                    <td>@satis.ToplamFiyat</td>
+                    <td>@satis.Iskonto</td>
+                    <td>@satis.Urun.Birim.BirimAdi</td>
+                    <td>@satis.Tarih.ToString("dd.MM.yyyy")</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>

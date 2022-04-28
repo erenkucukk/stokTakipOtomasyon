@@ -21,7 +21,6 @@ namespace StokTakip.Entities.Model
 
         public virtual Urun Urun { get; set; }
         public virtual Personel Personel { get; set; }
-        public virtual ICollection<Satis> Satiss { get; set; }
 
     }
 }

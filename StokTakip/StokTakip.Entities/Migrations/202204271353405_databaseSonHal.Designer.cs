@@ -13,7 +13,7 @@ namespace StokTakip.Entities.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202204210706358_databaseSonHal"; }
+            get { return "202204271353405_databaseSonHal"; }
         }
         
         string IMigrationMetadata.Source

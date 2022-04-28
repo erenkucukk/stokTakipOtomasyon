@@ -68,9 +68,9 @@
     <Compile Include="Mapping\UrunMap.cs" />
     <Compile Include="Mapping\UyeMap.cs" />
     <Compile Include="Mapping\YetkiMap.cs" />
-    <Compile Include="Migrations\202204210706358_databaseSonHal.cs" />
-    <Compile Include="Migrations\202204210706358_databaseSonHal.designer.cs">
-      <DependentUpon>202204210706358_databaseSonHal.cs</DependentUpon>
+    <Compile Include="Migrations\202204271353405_databaseSonHal.cs" />
+    <Compile Include="Migrations\202204271353405_databaseSonHal.designer.cs">
+      <DependentUpon>202204271353405_databaseSonHal.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AltKategori.cs" />
@@ -98,8 +98,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204210706358_databaseSonHal.resx">
-      <DependentUpon>202204210706358_databaseSonHal.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202204271353405_databaseSonHal.resx">
+      <DependentUpon>202204271353405_databaseSonHal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

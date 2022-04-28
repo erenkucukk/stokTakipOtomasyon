@@ -133,6 +133,7 @@
     <Compile Include="Controllers\KategoriController.cs" />
     <Compile Include="Controllers\MarkaController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
+    <Compile Include="Controllers\SatisController.cs" />
     <Compile Include="Controllers\SepetController.cs" />
     <Compile Include="Controllers\StokHareketController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
@@ -2641,6 +2642,10 @@
     <Content Include="Views\StokHareket\StokGiris.cshtml" />
     <Content Include="Views\StokHareket\StokCikis.cshtml" />
     <Content Include="Views\Sepet\Index.cshtml" />
+    <Content Include="Views\Sepet\ToplamSayi.cshtml" />
+    <Content Include="Views\Satis\Index.cshtml" />
+    <Content Include="Views\Satis\Sat.cshtml" />
+    <Content Include="Views\Satis\islem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

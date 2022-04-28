@@ -11,6 +11,7 @@ namespace StokTakip.Entities.Model
     {
         [Key]
         public int SatisId { get; set; }
+        public int PersonelNo { get; set; }
         public int UrunNo { get; set; }
         public int SepetNo { get; set; }
         public int BarkodNo { get; set; }
@@ -26,6 +27,7 @@ namespace StokTakip.Entities.Model
         public virtual Personel Personel { get; set; }
         public virtual Sepet Sepet { get; set; }
         public virtual Birim Birim { get; set; }
+
 
 
     }

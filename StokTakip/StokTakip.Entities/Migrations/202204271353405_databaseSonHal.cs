@@ -77,23 +77,33 @@
                 .PrimaryKey(t => t.MarkaId);
             
             CreateTable(
-                "dbo.tblSepet",
+                "dbo.tblSatis",
                 c => new
                     {
-                        SepetId = c.Int(nullable: false, identity: true),
+                        SatisId = c.Int(nullable: false, identity: true),
                         PersonelNo = c.Int(nullable: false),
                         UrunNo = c.Int(nullable: false),
+                        SepetNo = c.Int(nullable: false),
+                        BarkodNo = c.Int(nullable: false),
                         BirimFiyat = c.Decimal(nullable: false, storeType: "money"),
                         Miktar = c.Int(nullable: false),
                         ToplamFiyat = c.Decimal(nullable: false, storeType: "money"),
+                        Iskonto = c.Decimal(nullable: false, storeType: "money"),
+                        BirimNo = c.Int(nullable: false),
                         Tarih = c.DateTime(nullable: false, storeType: "date"),
-                        SepetDurum = c.Boolean(nullable: false),
+                        SatisDurum = c.Boolean(nullable: false),
+                        Birim_BirimId = c.Int(),
+                        Sepet_SepetId = c.Int(),
                     })
-                .PrimaryKey(t => t.SepetId)
+                .PrimaryKey(t => t.SatisId)
+                .ForeignKey("dbo.tblBirim", t => t.Birim_BirimId)
                 .ForeignKey("dbo.tblPersonel", t => t.PersonelNo, cascadeDelete: true)
+                .ForeignKey("dbo.tblSepet", t => t.Sepet_SepetId)
                 .ForeignKey("dbo.tblUrun", t => t.UrunNo, cascadeDelete: true)
                 .Index(t => t.PersonelNo)
-                .Index(t => t.UrunNo);
+                .Index(t => t.UrunNo)
+                .Index(t => t.Birim_BirimId)
+                .Index(t => t.Sepet_SepetId);
             
             CreateTable(
                 "dbo.tblPersonel",
@@ -114,6 +124,25 @@
                 .PrimaryKey(t => t.PersonelId)
                 .ForeignKey("dbo.tblYetki", t => t.YetkiId, cascadeDelete: true)
                 .Index(t => t.YetkiId);
+            
+            CreateTable(
+                "dbo.tblSepet",
+                c => new
+                    {
+                        SepetId = c.Int(nullable: false, identity: true),
+                        PersonelNo = c.Int(nullable: false),
+                        UrunNo = c.Int(nullable: false),
+                        BirimFiyat = c.Decimal(nullable: false, storeType: "money"),
+                        Miktar = c.Int(nullable: false),
+                        ToplamFiyat = c.Decimal(nullable: false, storeType: "money"),
+                        Tarih = c.DateTime(nullable: false, storeType: "date"),
+                        SepetDurum = c.Boolean(nullable: false),
+                    })
+                .PrimaryKey(t => t.SepetId)
+                .ForeignKey("dbo.tblPersonel", t => t.PersonelNo, cascadeDelete: true)
+                .ForeignKey("dbo.tblUrun", t => t.UrunNo, cascadeDelete: true)
+                .Index(t => t.PersonelNo)
+                .Index(t => t.UrunNo);
             
             CreateTable(
                 "dbo.tblStokHareket",
@@ -147,35 +176,6 @@
                         YetkiDurum = c.Boolean(nullable: false),
                     })
                 .PrimaryKey(t => t.YetkiId);
-            
-            CreateTable(
-                "dbo.tblSatis",
-                c => new
-                    {
-                        SatisId = c.Int(nullable: false, identity: true),
-                        UrunNo = c.Int(nullable: false),
-                        SepetNo = c.Int(nullable: false),
-                        BarkodNo = c.Int(nullable: false),
-                        BirimFiyat = c.Decimal(nullable: false, storeType: "money"),
-                        Miktar = c.Int(nullable: false),
-                        ToplamFiyat = c.Decimal(nullable: false, storeType: "money"),
-                        Iskonto = c.Decimal(nullable: false, storeType: "money"),
-                        BirimNo = c.Int(nullable: false),
-                        Tarih = c.DateTime(nullable: false, storeType: "date"),
-                        SatisDurum = c.Boolean(nullable: false),
-                        Birim_BirimId = c.Int(),
-                        Personel_PersonelId = c.Int(),
-                        Urun_UrunId = c.Int(),
-                    })
-                .PrimaryKey(t => t.SatisId)
-                .ForeignKey("dbo.tblBirim", t => t.Birim_BirimId)
-                .ForeignKey("dbo.tblPersonel", t => t.Personel_PersonelId)
-                .ForeignKey("dbo.tblSepet", t => t.SepetNo, cascadeDelete: true)
-                .ForeignKey("dbo.tblUrun", t => t.Urun_UrunId)
-                .Index(t => t.SepetNo)
-                .Index(t => t.Birim_BirimId)
-                .Index(t => t.Personel_PersonelId)
-                .Index(t => t.Urun_UrunId);
             
             CreateTable(
                 "dbo.tblKartBilgileri",
@@ -237,28 +237,28 @@
         {
             DropForeignKey("dbo.tblKasaHareketleri", "KasaId", "dbo.tblKasa");
             DropForeignKey("dbo.tblAltKategori", "KategoriId", "dbo.tblKategori");
-            DropForeignKey("dbo.tblSepet", "UrunNo", "dbo.tblUrun");
-            DropForeignKey("dbo.tblSatis", "Urun_UrunId", "dbo.tblUrun");
-            DropForeignKey("dbo.tblSatis", "SepetNo", "dbo.tblSepet");
-            DropForeignKey("dbo.tblSatis", "Personel_PersonelId", "dbo.tblPersonel");
-            DropForeignKey("dbo.tblSatis", "Birim_BirimId", "dbo.tblBirim");
-            DropForeignKey("dbo.tblSepet", "PersonelNo", "dbo.tblPersonel");
+            DropForeignKey("dbo.tblSatis", "UrunNo", "dbo.tblUrun");
+            DropForeignKey("dbo.tblSatis", "Sepet_SepetId", "dbo.tblSepet");
+            DropForeignKey("dbo.tblSatis", "PersonelNo", "dbo.tblPersonel");
             DropForeignKey("dbo.tblPersonel", "YetkiId", "dbo.tblYetki");
             DropForeignKey("dbo.tblStokHareket", "UrunId", "dbo.tblUrun");
             DropForeignKey("dbo.tblStokHareket", "PersonelId", "dbo.tblPersonel");
+            DropForeignKey("dbo.tblSepet", "UrunNo", "dbo.tblUrun");
+            DropForeignKey("dbo.tblSepet", "PersonelNo", "dbo.tblPersonel");
+            DropForeignKey("dbo.tblSatis", "Birim_BirimId", "dbo.tblBirim");
             DropForeignKey("dbo.tblUrun", "UrunMarkaId", "dbo.tblMarka");
             DropForeignKey("dbo.tblUrun", "UrunKategoriId", "dbo.tblKategori");
             DropForeignKey("dbo.tblUrun", "UrunBirimId", "dbo.tblBirim");
             DropIndex("dbo.tblKasaHareketleri", new[] { "KasaId" });
-            DropIndex("dbo.tblSatis", new[] { "Urun_UrunId" });
-            DropIndex("dbo.tblSatis", new[] { "Personel_PersonelId" });
-            DropIndex("dbo.tblSatis", new[] { "Birim_BirimId" });
-            DropIndex("dbo.tblSatis", new[] { "SepetNo" });
             DropIndex("dbo.tblStokHareket", new[] { "PersonelId" });
             DropIndex("dbo.tblStokHareket", new[] { "UrunId" });
-            DropIndex("dbo.tblPersonel", new[] { "YetkiId" });
             DropIndex("dbo.tblSepet", new[] { "UrunNo" });
             DropIndex("dbo.tblSepet", new[] { "PersonelNo" });
+            DropIndex("dbo.tblPersonel", new[] { "YetkiId" });
+            DropIndex("dbo.tblSatis", new[] { "Sepet_SepetId" });
+            DropIndex("dbo.tblSatis", new[] { "Birim_BirimId" });
+            DropIndex("dbo.tblSatis", new[] { "UrunNo" });
+            DropIndex("dbo.tblSatis", new[] { "PersonelNo" });
             DropIndex("dbo.tblUrun", new[] { "UrunMarkaId" });
             DropIndex("dbo.tblUrun", new[] { "UrunKategoriId" });
             DropIndex("dbo.tblUrun", new[] { "UrunBirimId" });
@@ -267,11 +267,11 @@
             DropTable("dbo.tblKasa");
             DropTable("dbo.tblKasaHareketleri");
             DropTable("dbo.tblKartBilgileri");
-            DropTable("dbo.tblSatis");
             DropTable("dbo.tblYetki");
             DropTable("dbo.tblStokHareket");
-            DropTable("dbo.tblPersonel");
             DropTable("dbo.tblSepet");
+            DropTable("dbo.tblPersonel");
+            DropTable("dbo.tblSatis");
             DropTable("dbo.tblMarka");
             DropTable("dbo.tblBirim");
             DropTable("dbo.tblUrun");

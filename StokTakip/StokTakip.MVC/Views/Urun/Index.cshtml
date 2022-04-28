@@ -31,29 +31,32 @@
         <tbody>
             @foreach (var urun in Model)
             {
-            <tr style="text-align:center">
-                <td>@urun.UrunId</td>
-                <td>@urun.UrunAdi</td>
-                <td>@urun.UrunMiktar</td>
-                <td>@urun.Birim.BirimAdi</td>
-                <td>@urun.Kategori.KategoriAdi</td>
-                <td>@urun.Marka.MarkaAdi</td>
-                <td>@urun.UrunSatisFiyat₺</td>
-                <td>@urun.UrunAciklama</td>
-                <td>@urun.UrunDurum</td>
-                <td>
-                    <a class="btn btn-warning" href="/Urun/Guncelle/@urun.UrunId">Güncelle</a>
-                    <a class="btn btn-success" href="/StokHareket/StokGiris/@urun.UrunId">Giriş</a>
-                    <a class="btn btn-danger" href="/StokHareket/StokCikis/@urun.UrunId">Çıkış</a>
-                </td>
-                <td>
-                    <a class="btn btn-warning"  href="/StokHareket/Index/">Hareket</a>
-                </td>
-            </tr>
+                <tr style="text-align:center">
+                    <td>@urun.UrunId</td>
+                    <td>@urun.UrunAdi</td>
+                    <td>@urun.UrunMiktar</td>
+                    <td>@urun.Birim.BirimAdi</td>
+                    <td>@urun.Kategori.KategoriAdi</td>
+                    <td>@urun.Marka.MarkaAdi</td>
+                    <td>@urun.UrunSatisFiyat₺</td>
+                    <td>@urun.UrunAciklama</td>
+                    <td>@urun.UrunDurum</td>
+                    <td>
+                        <a class="btn btn-warning" href="/Urun/Guncelle/@urun.UrunId">Güncelle</a>
+                        <a class="btn btn-success" href="/StokHareket/StokGiris/@urun.UrunId">Giriş</a>
+                        <a class="btn btn-danger" href="/StokHareket/StokCikis/@urun.UrunId">Çıkış</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-warning" href="/StokHareket/Index/">Hareket</a>
+                        <a class="nav-item; btn btn-info" href="/Sepet/Ekle/@urun.UrunId">Ekle 
+                        <i class="nav-icon fas fa-shopping-cart"></i></a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>
 
     <a class="btn btn-primary" href="/Urun/Ekle/">Yeni Ürün Ekle</a>
+
 
 </div>

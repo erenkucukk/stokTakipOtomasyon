@@ -24,6 +24,7 @@ namespace StokTakip.Entities.Model
         public bool UrunDurum { get; set; }
 
         public virtual ICollection<Sepet> Sepets { get; set; }
+        public virtual ICollection<Satis> Satiss { get; set; }
         public virtual ICollection<StokHareket> StokHarekets { get; set; }
 
     }

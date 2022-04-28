@@ -1,4 +1,4 @@
-﻿
+﻿@using StokTakip.Entities.Model;
 @{
     Layout = null;
 }
@@ -28,7 +28,59 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
             </ul>
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Navbar Search -->
 
+                <li class="nav-item d-none d-sm-inline-block">
+                    <div style="position:relative">
+                        <a href="/Sepet/Index" class="nav-link">
+                            <i class="fas fas fa-shopping-cart fa-2x"></i>
+
+                            @{
+                                StokTakipContext db = new StokTakipContext();
+                                var model = db.Personels.FirstOrDefault();
+                                if (model != null)
+                                {
+                                    int count = db.Sepets.Where(x => x.PersonelNo.Equals(model.PersonelId)).Count();
+                                    if (count > 0)
+                                    {
+                                        <label class="basket">
+                                            @{ Html.RenderAction("ToplamSayi", "Sepet");}
+                                        </label>
+                                    }
+                                    if (count == 0)
+                                    {
+                                        <label class="basket" style="background-color:transparent">
+                                            @{ Html.RenderAction("ToplamSayi", "Sepet");}
+                                        </label>
+                                    }
+                                }
+                            }
+                        </a>
+                    </div>
+
+                </li>
+
+            </ul>
+            <style>
+                .basket {
+                    background: #ea222f;
+                    color: #fff;
+                    font-size: 10px;
+                    font-weight: 400;
+                    position: absolute;
+                    left: 35px;
+                    top: 7px;
+                    height: 16px;
+                    width: 16px;
+                    text-align: center;
+                    line-height: 16px;
+                    border-radius: 8px;
+                }
+            </style>
+
+            
 
         </nav>
         <!-- /.navbar -->
@@ -57,7 +109,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-                        with font-awesome or any other icon font library -->
+    with font-awesome or any other icon font library -->
 
                         <li class="nav-header">MENU</li>
                         <li class="nav-item">
@@ -115,13 +167,13 @@
                         </li>
 
                         <!-- <li class="nav-item">
-                            <a href="/Uye/Index" class="nav-link">
-                                <i class="nav-icon fas fa-users"></i>
-                                <p>
-                                    Uyeler
-                                </p>
-                            </a>
-                        </li>-->
+        <a href="/Uye/Index" class="nav-link">
+            <i class="nav-icon fas fa-users"></i>
+            <p>
+                Uyeler
+            </p>
+        </a>
+    </li>-->
 
 
 
@@ -144,7 +196,14 @@
                                 </p>
                             </a>
                         </li>
-
+                        <li class="nav-item">
+                            <a href="/Satis/Index" class="nav-link">
+                                <i class="nav-icon fas fa-money-check"></i>
+                                <p>
+                                    Satışlar
+                                </p>
+                            </a>
+                        </li>
                         <li class="nav-item">
                             <a href="../calendar.html" class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt"></i>
@@ -154,14 +213,7 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="/Sepet/Index" class="nav-link">
-                                <i class="nav-icon fas fa-shopping-cart"></i>
-                                <p>
-                                    Sepet
-                                </p>
-                            </a>
-                        </li>
+
 
 
                     </ul>

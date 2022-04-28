@@ -13,32 +13,96 @@
     <table class="table table-bordered">
         <thead>
             <tr style="text-align:center; background-color:#4B5860; color:white">
-                <th>PersonelId</th>
                 <th>Ürün Bilgisi(kategori - marka - id - ad)</th>
                 <th>Birim Fiyatı</th>
                 <th>Miktar</th>
                 <th>ToplamFiyat</th>
                 <th>Tarih</th>
-                <th>SepetDurum</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var spt in Model)
             {
                 <tr style="text-align:center">
-                    <td>@spt.Personel.PersonelAdi @spt.Personel.PersonelSoyadi</td>
                     <td>@spt.Urun.Kategori.KategoriAdi - @spt.Urun.Marka.MarkaAdi - @spt.Urun.UrunId - @spt.Urun.UrunAdi</td>
                     <td>@spt.BirimFiyat</td>
-                    <td>@spt.Miktar</td>
+                    <td>
+                        <div>
+                            <a class="btn btn-secondary btn-sm azalt" href="/Sepet/Azalt/@spt.SepetId">-</a>
+                        </div>
+                        @Html.TextBoxFor(x => spt.Miktar, new { @class = "txt", data_id = spt.SepetId })
+                        <div>
+                            <a class="btn btn-primary btn-sm arttir" href="/Sepet/Arttir/@spt.SepetId">+</a>
+                        </div>
+                    </td>
                     <td>@spt.ToplamFiyat</td>
-                    <td>@spt.Tarih</td>
-                    <td>@spt.SepetDurum</td>
+                    <td>@spt.Tarih.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        <a class="btn btn-danger" href="/Sepet/Sil/@spt.SepetId">Sil</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success" href="/Satis/Sat/@spt.SepetId">Sat</a>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
-    @ViewBag.Tutar
+    <div class=" container form-control">
+        @ViewBag.Tutar
+    </div>
     <br />
-    <a class="btn btn-primary" href="/Sepet/Ekle/">Ürün Seç</a>
+
+
+    <div class="container form-group">
+        <a class="btn btn-success form-control" href="/Sepet/HepsiniSat/">Hepsini Sat</a>
+    </div>
+    <div class="container form-group">
+        <a class="btn btn-danger form-control" href="/Sepet/HepsiniSil/">Hepsini Sil</a>
+    </div>
+
 </div>
 
+<style>
+    .txt {
+        line-height: 18px;
+        width: 35px !important;
+        height: 30px;
+        font-size: 14px;
+        text-align: center;
+        border: solid 1px #ccc;
+    }
+
+    .arttir {
+        display: block;
+        cursor: pointer;
+        margin-left: 64px;
+        position: absolute;
+        margin-top: -30px;
+    }
+
+    .azalt {
+        display: block;
+        cursor: pointer;
+        position: absolute;
+    }
+</style>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script>
+    $(function () {
+        $('.txt').on('change', function () {
+            var miktar = $(this).val();
+            var sepetid = $(this).attr('data-id');
+            $.ajax({
+                url: '/Sepet/DinamikMiktar/',
+                data: { id: sepetid, miktari: miktar },
+                success: function (res) {
+                    document.location.reload();
+                }
+            })
+
+        });
+    });
+</script>
