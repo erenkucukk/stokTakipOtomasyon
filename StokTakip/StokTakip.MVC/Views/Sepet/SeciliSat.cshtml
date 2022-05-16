@@ -1,0 +1,61 @@
+﻿@using StokTakip.Entities.Model
+@model List<Sepet>
+@{
+    ViewBag.Title = "SeciliSat";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="container">Seçili Ürünler</h2>
+@using (Html.BeginForm("SeciliSat2", "Sepet", FormMethod.Post, new { @class = "container" }))
+{
+    foreach (var item in Model.Where(x => x.SepetId != 0))
+    {
+        <div class="form-group">
+            Id: @Html.TextBoxFor(x => item.SepetId, new { @class = "form-control sepetid", @readonly= "true"})
+        </div>
+
+        <div class="form-group">
+            Ürün Adı: @Html.DisplayFor(x => item.Urun.UrunAdi, new { @class = "form-control" })
+        </div>
+        <hr />
+    }
+    <div>
+        <label style="font-weight:bold">Tutar= @ViewBag.Total</label>
+    </div>
+    <div>
+        <div style="float:left">
+            <button type="button" onclick="secili()" class="btn btn-info">Onay</button>
+        </div>
+        <div style="float:right">
+            <a href="/Sepet/Index" class="btn btn-secondary">Çıkış</a>
+        </div>
+    </div>
+
+
+}
+
+
+
+
+<script>
+    function secili() {
+
+        var ids = [];
+        $.each($(".sepetid"),
+            function (index, data) {
+                ids.push($(data).val());
+            });
+        $.ajax({
+            type: "POST",
+            url: "/Sepet/SeciliSat2",
+            data: { ids: ids },
+            success: function (data) {
+                window.location.href = "/Sepet";
+            },
+            error: function () {
+                alert("İşlem Başarısız");
+            }
+        });
+
+    }
+</script>

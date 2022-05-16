@@ -2646,6 +2646,8 @@
     <Content Include="Views\Satis\Index.cshtml" />
     <Content Include="Views\Satis\Sat.cshtml" />
     <Content Include="Views\Satis\islem.cshtml" />
+    <Content Include="Views\Satis\HepsiniSat.cshtml" />
+    <Content Include="Views\Sepet\SeciliSat.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

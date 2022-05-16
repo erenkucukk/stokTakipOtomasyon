@@ -1,0 +1,98 @@
+﻿@using StokTakip.Entities.Model
+@model List<Sepet>
+@{
+    ViewBag.Title = "HepsiniSat";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container">
+
+
+
+    <div class="container">
+        <h2>HepsiniSat</h2>
+    </div>
+    <hr />
+</div>
+
+
+
+@using (Html.BeginForm("HepsiniSat", "Satis", FormMethod.Post, new { @class = "container" }))
+{
+
+    foreach (var item in Model)
+    {
+        <div class="container">
+            <div class="form-group">
+                <h5> ID: @Html.DisplayFor(x => item.SepetId)</h5>>
+            </div>
+
+            <div class="form-group">
+                Urun Adı: @Html.DisplayFor(x => item.Urun.UrunAdi)
+            </div>
+            <div class="form-group">
+                Barkod No: @Html.DisplayFor(x => item.Urun.UrunId)
+            </div>
+            <div class="form-group">
+                Miktar: @Html.DisplayFor(x => item.Miktar)
+            </div>
+            <div class="form-group">
+                Birimi: @Html.DisplayFor(x => item.Urun.Birim.BirimAdi)
+            </div>
+            <div class="form-group">
+                Fiyatı: @Html.DisplayFor(x => item.BirimFiyat)
+            </div>
+            <div class="form-group">
+                <h5 class="text-danger">Toplam Fiyatı: @Html.DisplayFor(x => item.ToplamFiyat)</h5>
+            </div>
+            <div class="form-group">
+                ID: @Html.DisplayFor(x => item.SepetId)
+            </div>
+            <hr />
+        </div>
+    }
+
+
+    <div class="container">
+
+        <div><h5 class="text-danger text-center">@ViewBag.Tutar</h5></div>
+
+        <div class="form-group" style="float:left">
+            <button class="btn btn-success">Onay</button>
+        </div>
+        <div>
+            <a href="/Sepet/Index" class="btn btn-dark" style="float:right">İptal</a>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+<!--
+
+
+using (Html.BeginForm("Index", "Graphe"))
+{
+    <table style="width: 100%;" border="1">
+        <tbody>
+            <tr>
+                <td>Responsable:</td>
+                <td>
+                    <select id="Responsables" name="responsables">
+                    </select>
+                </td>
+                <td><input id="responsable" name="checkResp" type="checkbox" /></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Afficher" id="ButtonSubmit" /></td>
+                <td><input class="button" id="ButtonReset" type="button" value="Annuler" /></td>
+            </tr>
+        </tbody>
+    </table>-->
+}
