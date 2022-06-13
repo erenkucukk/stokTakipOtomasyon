@@ -22,6 +22,7 @@ namespace StokTakip.Entities.Mapping
             this.HasRequired(p => p.Personel).WithMany(p => p.Sepets).HasForeignKey(p => p.PersonelNo);
             this.HasRequired(p => p.Urun).WithMany(p => p.Sepets).HasForeignKey(p => p.UrunNo);
 
+
         }
     }
 }

@@ -62,7 +62,7 @@ namespace StokTakip.MVC.Controllers
                     sepet.ToplamFiyat = sepet.Miktar * sepet.BirimFiyat;
                     sepet.SepetDurum = true;
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index", "Urun");
                 }
                 var s = new Sepet
                 {
@@ -76,7 +76,7 @@ namespace StokTakip.MVC.Controllers
                 };
                 db.Entry(s).State = System.Data.Entity.EntityState.Added;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Urun");
             }
             return HttpNotFound();
 
@@ -202,7 +202,6 @@ namespace StokTakip.MVC.Controllers
                     //Iskonto = spt.Iskonto,
                     BirimNo = model[row].Urun.UrunBirimId,
                     Tarih = DateTime.Now
-
                 };
 
 
@@ -240,13 +239,9 @@ namespace StokTakip.MVC.Controllers
             }
 
 
-
-
-
             db.Sepets.RemoveRange(model);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
     }
 }

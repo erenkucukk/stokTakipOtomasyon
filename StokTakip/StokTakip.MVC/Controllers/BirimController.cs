@@ -12,14 +12,14 @@ namespace StokTakip.MVC.Controllers
         StokTakipContext db = new StokTakipContext();
 
         // GET: Birim
-        public ActionResult Index(string aranacakKelime)
+        public ActionResult Index(string aranacakBirim)
         {
-            var birimler = db.Birims.Where(x => x.BirimDurum == true);
-            if (!string.IsNullOrEmpty(aranacakKelime))
+            List<Birim> birimler = db.Birims.ToList();
+            if (!string.IsNullOrEmpty(aranacakBirim))
             {
-                birimler = birimler.Where(x => x.BirimAdi.Contains(aranacakKelime));
+                birimler = birimler.Where(x => x.BirimAdi.ToLower().Contains(aranacakBirim.ToLower())).ToList();
             }
-            return View(birimler.ToList());
+            return View(birimler);
         }
 
 

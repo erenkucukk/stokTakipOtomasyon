@@ -13,9 +13,20 @@ namespace StokTakip.MVC.Controllers
         StokTakipContext db = new StokTakipContext();
 
         // GET: Urun 
-        public ActionResult Index()
+        public ActionResult Index(string aranacakUrun)
         {
-            List<Urun> urunler = db.Uruns.Where(x => x.UrunDurum).ToList();
+            List<Urun> urunler = db.Uruns.ToList();
+            if (!string.IsNullOrEmpty(aranacakUrun))
+            {
+                urunler = urunler.Where(x => x.UrunAdi.ToLower().Contains(aranacakUrun.ToLower())).ToList();
+            }
+            return View(urunler);
+        }
+
+
+        public ActionResult Raporlama()
+        {
+            List<Urun> urunler = db.Uruns.ToList();
             return View(urunler);
         }
 

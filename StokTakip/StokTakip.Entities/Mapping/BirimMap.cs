@@ -14,6 +14,7 @@ namespace StokTakip.Entities.Mapping
             this.Property(p => p.BirimAdi).HasColumnType("varchar").HasMaxLength(50);
             this.Property(p => p.BirimAciklama).HasColumnType("varchar").HasMaxLength(500);
 
+
         }
     }
 }

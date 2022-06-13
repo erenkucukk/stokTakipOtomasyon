@@ -12,9 +12,13 @@ namespace StokTakip.MVC.Controllers
         StokTakipContext db = new StokTakipContext();
 
         // GET: Marka
-        public ActionResult Index()
+        public ActionResult Index(string aranacakMarka)
         {
-            List<Marka> markalar = db.Markas.Where(x => x.MarkaDurum == true).ToList();
+            List<Marka> markalar = db.Markas.ToList();
+            if (!string.IsNullOrEmpty(aranacakMarka))
+            {
+                markalar = markalar.Where(x => x.MarkaAdi.ToLower().Contains(aranacakMarka.ToLower())).ToList();
+            }
             return View(markalar);
         }
 

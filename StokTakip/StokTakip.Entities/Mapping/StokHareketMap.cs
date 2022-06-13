@@ -17,7 +17,7 @@ namespace StokTakip.Entities.Mapping
             this.Property(p => p.UrunSatisFiyat).HasColumnType("money");
             this.Property(p => p.Iskonto).HasColumnType("float");
             this.Property(p => p.UrunMiktar).HasColumnType("int");
-            this.Property(p => p.Tarih).HasColumnType("date");
+            this.Property(p => p.Tarih).HasColumnType("datetime");
 
             this.HasRequired(p => p.Personel).WithMany(p => p.StokHarekets).HasForeignKey(p => p.PersonelId);
             this.HasRequired(p => p.Urun).WithMany(p => p.StokHarekets).HasForeignKey(p => p.UrunId);

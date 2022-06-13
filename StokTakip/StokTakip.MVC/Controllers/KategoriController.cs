@@ -13,10 +13,23 @@ namespace StokTakip.MVC.Controllers
         StokTakipContext db = new StokTakipContext();
 
         // GET: Kategori
-        public ActionResult Index()
+        public ActionResult Index(string aranacakKtgr)
         {
-            List<Kategori> kategoriler = db.Kategoris.Where(x => x.KategoriDurum == true).ToList();
-            return View(kategoriler);
+            try
+            {
+                List<Kategori> kategoriler = db.Kategoris.ToList();
+                if (!string.IsNullOrEmpty(aranacakKtgr))
+                {
+                    kategoriler = kategoriler.Where(x => x.KategoriAdi.ToLower().Contains(aranacakKtgr.ToLower())).ToList();
+                }
+                return View(kategoriler);
+            }
+            catch (Exception)
+            {
+
+                return RedirectToAction("Index", "Login");
+            }
+
         }
 
         // Kategori Ekle

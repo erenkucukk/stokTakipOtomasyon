@@ -15,9 +15,6 @@
         @Html.Label("Ürün Adı")
         @Html.DropDownListFor(x => x.UrunId, (List<SelectListItem>)ViewBag.Urunler, new { @class = "form-control" })
         <br />
-        @Html.Label("pers Adı")
-        @Html.DropDownListFor(x => x.PersonelId, (List<SelectListItem>)ViewBag.Personeller, "----Seçiniz----", new { @class = "form-control" })
-        <br />
         @Html.Label("Ürün Miktar")
         @Html.TextBoxFor(x => x.UrunMiktar, new { @class = "form-control" })
         <br />

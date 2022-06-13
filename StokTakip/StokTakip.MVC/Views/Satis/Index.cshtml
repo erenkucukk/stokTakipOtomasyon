@@ -9,11 +9,16 @@
     <h2><b>Satış Listesi</b></h2>
 </div>
 
+<div class="form-group" style="float:left;margin:15px">
+    <a class="btn btn-warning" href="/Satis/Raporlama">Raporla</a>
+</div>
+
 <div style="margin:15px" class="form-group">
     <table class="table table-bordered">
         <thead>
             <tr style="text-align:center; background-color:#4B5860; color:white">
                 <th>Id</th>
+                <th>Sepet No</th>
                 <th>Personel Ad Soyad</th>
                 <th>Ürün Adı</th>
                 <th>Barkod No</th>
@@ -23,6 +28,7 @@
                 <th>İskonto</th>
                 <th>Birim</th>
                 <th>Tarih</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +36,7 @@
             {
                 <tr style="text-align:center">
                     <td>@satis.SatisId</td>
+                    <td>@satis.SepetNo</td>
                     <td>@satis.Personel.PersonelAdi @satis.Personel.PersonelSoyadi</td>
                     <td>@satis.Urun.UrunAdi</td>
                     <td>@satis.BarkodNo</td>
@@ -39,6 +46,9 @@
                     <td>@satis.Iskonto</td>
                     <td>@satis.Urun.Birim.BirimAdi</td>
                     <td>@satis.Tarih.ToString("dd.MM.yyyy")</td>
+                    <td>
+                        <a class="btn btn-danger" href="/Satis/Sil/@satis.SatisId">Sil</a>
+                    </td>
                 </tr>
             }
         </tbody>

@@ -11,6 +11,7 @@ namespace StokTakip.Entities.Mapping
             this.ToTable("tblSatis");
             this.Property(p => p.SatisId).HasColumnType("int");
             this.Property(p => p.SatisId).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            this.Property(p => p.SiparisNo).HasColumnType("int");
             this.Property(p => p.UrunNo).HasColumnType("int");
             this.Property(p => p.PersonelNo).HasColumnType("int");
             this.Property(p => p.SepetNo).HasColumnType("int");
@@ -25,6 +26,8 @@ namespace StokTakip.Entities.Mapping
 
             this.HasRequired(p => p.Personel).WithMany(p => p.Satiss).HasForeignKey(p => p.PersonelNo);
             this.HasRequired(p => p.Urun).WithMany(p => p.Satiss).HasForeignKey(p => p.UrunNo);
+            //this.HasRequired(p => p.Siparis).WithMany(p => p.Satiss).HasForeignKey(p => p.SiparisNo);
+
 
         }
     }

@@ -17,6 +17,12 @@ namespace StokTakip.MVC.Controllers
             return View(satislar);
         }
 
+        public ActionResult Raporlama()
+        {
+            List<Satis> satislar = db.Satiss.ToList();
+            return View(satislar);
+        }
+
         [HttpGet]
         public ActionResult HepsiniSat(decimal? Tutar)
         {
@@ -52,7 +58,8 @@ namespace StokTakip.MVC.Controllers
             {
                 var satis = new Satis
                 {
-                    PersonelNo = model[row].PersonelNo,
+                    SiparisNo = 0,
+                    PersonelNo = int.Parse(Session["PersonelId"].ToString()),
                     UrunNo = model[row].UrunNo,
                     SepetNo = model[row].SepetId,
                     BarkodNo = model[row].Urun.UrunId,
@@ -64,7 +71,6 @@ namespace StokTakip.MVC.Controllers
                     Tarih = DateTime.Now
 
                 };
-
 
                 db.Satiss.Add(satis);
                 row++;
@@ -89,30 +95,17 @@ namespace StokTakip.MVC.Controllers
                     UrunSonFiyat = model[row].Miktar * model[row].BirimFiyat - model[row].Miktar * model[row].BirimFiyat * stkHrkt.Iskonto / 100,
                     UrunMiktar = model[row].Miktar,
                     //Iskonto = spt.Iskonto,
-                    PersonelId = model[row].PersonelNo,
+                    PersonelId = int.Parse(Session["PersonelId"].ToString()),
                     Tarih = DateTime.Now
 
                 };
-
 
                 db.StokHarekets.Add(stkHareket);
                 row++;
             }
 
-
-
-
-
             db.Sepets.RemoveRange(model);
             db.SaveChanges();
-
-
-
-
-
-
-
-
 
             return RedirectToAction("Index", "Sepet");
         }
@@ -165,5 +158,13 @@ namespace StokTakip.MVC.Controllers
 
          }
         */
+
+        public ActionResult Sil(int id)
+        {
+            Satis sts = db.Satiss.Find(id);
+            db.Satiss.Remove(sts);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -342,3 +342,10 @@ C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.MVC\obj\Debug\St
 C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.MVC\obj\Debug\StokTakip.MVC.csproj.CopyComplete
 C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.MVC\obj\Debug\StokTakip.MVC.dll
 C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.MVC\obj\Debug\StokTakip.MVC.pdb
+C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.MVC\bin\PagedList.dll
+C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.MVC\bin\PagedList.Mvc.dll
+C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.MVC\bin\PagedList.xml
+C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.MVC\bin\PagedList.Mvc.xml
+C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.MVC\bin\ExpressionEvaluator.dll
+C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.MVC\bin\GSF.Core.dll
+C:\Users\erenk\Documents\medipol\YonCalisma\StokTakip\StokTakip.MVC\bin\GSF.Core.xml

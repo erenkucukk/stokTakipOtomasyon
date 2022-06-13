@@ -24,6 +24,7 @@ namespace StokTakip.Entities.Model
         public virtual ICollection<StokHareket> StokHarekets { get; set; }
         public virtual ICollection<Sepet> Sepets { get; set; }
         public virtual ICollection<Satis> Satiss { get; set; }
+        //public virtual ICollection<Siparis> Sipariss { get; set; }
 
     }
 }

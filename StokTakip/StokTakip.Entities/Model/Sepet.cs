@@ -20,6 +20,9 @@ namespace StokTakip.Entities.Model
         public bool SepetDurum { get; set; }
 
         public virtual Urun Urun { get; set; }
+        //public virtual Siparis Siparis { get; set; }
+
+        public virtual Satis Satis { get; set; }
         public virtual Personel Personel { get; set; }
 
     }

@@ -1,0 +1,67 @@
+﻿@using StokTakip.Entities.Model
+@model List<StokHareket>
+@{
+    ViewBag.Title = "GetById";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+@foreach (var stkHrkt in Model)
+{
+    <div class="timeline timeline-inverse">
+        @if (stkHrkt.HareketTipi == true)
+        {
+            <div class="time-label">
+                <span class="bg-success">
+                    @stkHrkt.Tarih.ToString("dd MMMM yyyy")
+                </span>
+            </div>
+            <div>
+                <i class="fas  fa-chevron-up bg-success"> </i>
+
+                <div class="timeline-item">
+
+
+                    <h3 class="timeline-header">
+                        <a style="color:Highlight">@stkHrkt.Personel.PersonelAdi @stkHrkt.Personel.PersonelSoyadi</a>
+                        tarafından
+                        <a style="color:Highlight">Saat @stkHrkt.Tarih.ToString("HH.mm")</a>'de
+                        <a style="color:Highlight">@stkHrkt.UrunSonFiyat₺</a> tutarında
+                        toplam <a style="color:Highlight">@stkHrkt.UrunMiktar</a> adet
+                        <a style="color:Highlight">@stkHrkt.Urun.UrunAdi</a> <a style="color:green">girişi</a> oldu
+                    </h3>
+
+
+                </div>
+            </div>
+        }
+        @if (stkHrkt.HareketTipi == false)
+        {
+            <div class="time-label">
+                <span class="bg-danger">
+                    @stkHrkt.Tarih.ToString("dd MMMM yyyy ")
+                </span>
+            </div>
+
+            <div>
+                <i class="fas fa-chevron-down bg-danger"> </i>
+
+                <div class="timeline-item">
+
+                    <h3 class="timeline-header">
+                        <a style="color:Highlight">@stkHrkt.Personel.PersonelAdi @stkHrkt.Personel.PersonelSoyadi</a>
+                        tarafından
+                        <a style="color:Highlight">Saat @stkHrkt.Tarih.ToString("HH.mm")</a>'de
+                        <a style="color:Highlight">@stkHrkt.UrunSonFiyat₺</a> tutarında
+                        toplam <a style="color:Highlight">@stkHrkt.UrunMiktar</a> adet
+                        <a style="color:Highlight">@stkHrkt.Urun.UrunAdi</a> <a style="color:red">çıkışı</a> oldu
+                    </h3>
+
+                </div>
+            </div>
+        }
+
+    </div>
+
+}
+
+

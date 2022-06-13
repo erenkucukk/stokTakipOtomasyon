@@ -9,6 +9,16 @@
     <h2><b>Marka Listesi</b></h2>
 </div>
 
+<div class="form-group" style="text-align:right;margin:15px">
+    @using (Html.BeginForm("Index", "Marka", FormMethod.Get))
+    {
+        <div>
+            <b>Marka Adı : </b> @Html.TextBox("aranacakMarka") &nbsp;
+            <button style="text-align: center; color: white; background-color: #4B5860">Ara</button>
+        </div>
+    }
+</div>
+
 <div style="margin:15px" class="form-group">
     <table class="table table-bordered">
         <thead>
@@ -23,11 +33,18 @@
         <tbody>
             @foreach (var marka in Model)
             {
-                <tr style="text-align:center">
+                string renk = "black";
+                string durum = "Aktif";
+                if (!marka.MarkaDurum)
+                {
+                    renk = "red";
+                    durum = "Pasif";
+                }
+                <tr style="text-align:center; color:@renk">
                     <td>@marka.MarkaId</td>
                     <td>@marka.MarkaAdi</td>
                     <td>@marka.MarkaAciklama</td>
-                    <td>@marka.MarkaDurum</td>
+                    <td>@durum</td>
                     <td>
                         <a class="btn btn-success" href="/Marka/Guncelle/@marka.MarkaId">Güncelle</a>&nbsp;
                         <a class="btn btn-danger" href="/Marka/Sil/@marka.MarkaId">Sil</a>&nbsp;
@@ -37,8 +54,40 @@
         </tbody>
     </table>
 
+    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#markaModel">Yeni Marka Ekle</button>
 
-    <a class="btn btn-primary" href="/Marka/Ekle/">Yeni Marka Ekle</a>
+    <div class="modal fade" id="markaModel" tabindex="-1" role="dialog" aria-labelledby="">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="markaModel">Marka Ekleme</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <form method="post" action="/Marka/Ekle">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>
+                                Marka Adı
+                            </label>
+                            <input type="text" name="MarkaAdi" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Marka Açıklama
+                            </label>
+                            <input type="text" name="MarkaAciklama" class="form-control" />
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+                        <button type="submit" class="btn btn-primary">Ekle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 

@@ -1,0 +1,92 @@
+﻿@using StokTakip.Entities.Model
+@model List<Yetki>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="text-align:center;background-color:#4B5860;color:white;margin:15px">
+    <h2><b>Yetki Listesi</b></h2>
+</div>
+
+<div class="form-group" style="text-align:right;margin:15px">
+    @using (Html.BeginForm("Index", "Yetki", FormMethod.Get))
+    {
+        <div>
+            <b>Yetki Adı : </b> @Html.TextBox("aranacakYetki") &nbsp;
+            <button style="text-align: center; color: white; background-color: #4B5860">Ara</button>
+        </div>
+    }
+</div>
+
+<div style="margin:15px" class="form-group">
+    <table class="table table-bordered">
+        <thead>
+            <tr style="text-align:center; background-color:#4B5860; color:white">
+                <th>Id</th>
+                <th>Yetki Adı</th>
+                <th>Açıklama</th>
+                <th>Durumu</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var yetki in Model)
+            {
+                string renk = "black";
+                string durum = "Aktif";
+                if (!yetki.YetkiDurum)
+                {
+                    renk = "red";
+                    durum = "Pasif";
+                }
+                <tr style="text-align:center; color:@renk">
+                    <td>@yetki.YetkiId</td>
+                    <td>@yetki.YetkiAdi</td>
+                    <td>@yetki.YetkiAciklama</td>
+                    <td>@durum</td>
+                    <td>
+                        <a class="btn btn-success" href="/Yetki/Guncelle/@yetki.YetkiId">Güncelle</a>&nbsp;
+                        <a class="btn btn-danger" href="/Yetki/Sil/@yetki.YetkiId">Sil</a>&nbsp;
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <button class="btn btn-primary" type="button" data-toggle="modal" data-target="#yetkiModel">Yeni Yetki Ekle</button>
+
+    <div class="modal fade" id="yetkiModel" tabindex="-1" role="dialog" aria-labelledby="">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="yetkiModel">Yetki Ekleme</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <form method="post" action="/Yetki/Ekle">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>
+                                Yetki Adı
+                            </label>
+                            <input type="text" name="YetkiAdi" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                Yetki Açıklama
+                            </label>
+                            <input type="text" name="YetkiAciklama" class="form-control" />
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">İptal</button>
+                        <button type="submit" class="btn btn-primary">Ekle</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+

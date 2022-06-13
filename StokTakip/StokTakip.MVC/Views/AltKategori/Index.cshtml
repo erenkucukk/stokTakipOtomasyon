@@ -9,6 +9,16 @@
     <h2><b>Alt Kategori Listesi</b></h2>
 </div>
 
+<div class="form-group" style="text-align:right;margin:15px">
+    @using (Html.BeginForm("Index", "AltKategori", FormMethod.Get))
+    {
+        <div>
+            <b>Alt Kategori Adı : </b> @Html.TextBox("aranacaAltKtgr") &nbsp;
+            <button style="text-align: center; color: white; background-color: #4B5860">Ara</button>
+        </div>
+    }
+</div>
+
 <div style="margin:15px" class="form-group">
     <table class="table table-bordered">
         <thead>
@@ -24,12 +34,19 @@
         <tbody>
             @foreach (var altKtgr in Model)
             {
-                <tr style="text-align:center">
+                string renk = "black";
+                string durum = "Aktif";
+                if (!altKtgr.AltKategoriDurum)
+                {
+                    renk = "red";
+                    durum = "Pasif";
+                }
+                <tr style="text-align:center; color:@renk">
                     <td>@altKtgr.AltKategoriId</td>
                     <td>@altKtgr.AltKategoriAdi</td>
                     <td>@altKtgr.Kategori.KategoriAdi</td>
                     <td>@altKtgr.AltKategoriAciklama</td>
-                    <td>@altKtgr.AltKategoriDurum</td>
+                    <td>@durum</td>
                     <td>
                         <a class="btn btn-success" href="/AltKategori/Guncelle/@altKtgr.AltKategoriId">Güncelle</a>&nbsp;
                         <a class="btn btn-danger" href="/AltKategori/Sil/@altKtgr.AltKategoriId">Sil</a>
@@ -40,4 +57,5 @@
     </table>
 
     <a class="btn btn-primary" href="/AltKategori/Ekle/">Yeni Alt Kategori Ekle</a>
+
 </div>

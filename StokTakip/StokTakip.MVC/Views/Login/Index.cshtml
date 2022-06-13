@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giriş Ekranı</title>
+    <link rel="stylesheet" href="~/LoginEkranim/style.css">
+
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+    <div class="form-structor">
+
+        <form action="/Login/GirisYap" method="post">
+            <div class="login">
+
+                <h2 class="form-title" id="login"><span>ya da</span>Giriş Yap</h2>
+
+                <div class="form-holder">
+                    <input type="email" class="input" name="PersonelMail" placeholder="Kullanıcı Adı veya Mailinizi giriniz." />
+                    <input type="password" class="input" name="PersonelSifre" placeholder="Şifrenizi giriniz." />
+                </div>
+                <button class="submit-btn">Giriş Yap</button>
+
+            </div>
+        </form>
+        <div class="signup slide-up">
+            <div class="center">
+                <h2 class="form-title" id="signup"><span>ya da</span>Kayıt Ol</h2>
+                <div class="form-holder">
+                    <input type="text" class="input" placeholder="Adınızı giriniz." />
+                    <input type="email" class="input" placeholder="Emailinizi giriniz." />
+                    <input type="password" class="input" placeholder="Şifrenizi giriniz." />
+                </div>
+                <button class="submit-btn">Kayıt Ol</button>
+            </div>
+        </div>
+    </div>
+    <!-- partial -->
+    <script src="~/LoginEkranim/script.js"></script>
+
+</body>
+</html>

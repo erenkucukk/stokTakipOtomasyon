@@ -80,7 +80,7 @@
                 }
             </style>
 
-            
+
 
         </nav>
         <!-- /.navbar -->
@@ -97,10 +97,28 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="~/AdminLTE-3.2.0/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        @{
+                            string resim = "";
+                            if (Session["PersonelFotograf"] != null)
+                            {
+                                resim = Session["PersonelFotograf"].ToString();
+                            }
+
+                            <img src="@resim" class="img-circle elevation-2" alt="User Image">
+                        }
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Eren Küçük</a>
+                        <a href="#" class="d-block">
+                            @{
+                                string adSoyad = "Eren Küçük";
+                                if (Session["Personeli"] != null)
+                                {
+                                    adSoyad = Session["Personeli"].ToString();
+                                }
+
+                            }
+                            @adSoyad
+                        </a>
                     </div>
                 </div>
 
@@ -109,7 +127,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
-    with font-awesome or any other icon font library -->
+                        with font-awesome or any other icon font library -->
 
                         <li class="nav-header">MENU</li>
                         <li class="nav-item">
@@ -157,54 +175,69 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="/StokHareket/Index" class="nav-link">
-                                <i class="nav-icon fas fa-cubes"></i>
-                                <p>
-                                    Stok Hareketleri
-                                </p>
-                            </a>
-                        </li>
+
 
                         <!-- <li class="nav-item">
-        <a href="/Uye/Index" class="nav-link">
-            <i class="nav-icon fas fa-users"></i>
-            <p>
-                Uyeler
-            </p>
-        </a>
-    </li>-->
-
-
-
-                        <li class="nav-header">YÖNETİCİ</li>
-
-                        <li class="nav-item">
-                            <a href="/Personel/Index" class="nav-link">
+                            <a href="/Uye/Index" class="nav-link">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
-                                    Personeller
+                                    Uyeler
+                                </p>
+                            </a>
+                        </li>-->
+
+                        @if (int.Parse(Session["YetkiId"].ToString()) == 1)
+                        {
+
+                            <li class="nav-header">YÖNETİCİ</li>
+
+                            <li class="nav-item">
+                                <a href="/Personel/Index" class="nav-link">
+                                    <i class="nav-icon fas fa-users"></i>
+                                    <p>
+                                        Personeller
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/Yetki/Index" class="nav-link">
+                                    <i class="nav-icon fas fa-key"></i>
+                                    <p>
+                                        Yetkiler
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/Satis/Index" class="nav-link">
+                                    <i class="nav-icon fas fa-money-check"></i>
+                                    <p>
+                                        Satışlar
+                                    </p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/StokHareket/Index" class="nav-link">
+                                    <i class="nav-icon fas fa-cubes"></i>
+                                    <p>
+                                        Stok Hareketleri
+                                    </p>
+                                </a>
+                            </li>
+                        }
+
+                        <li class="nav-item">
+                            <a href="/Login/CikisYap" class="nav-link">
+                                <i class="nav-icon  fas fa-sign-out-alt"></i>
+                                <p>
+                                    Çıkış Yap
                                 </p>
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a href="/Yetki/Index" class="nav-link">
-                                <i class="nav-icon fas fa-key"></i>
-                                <p>
-                                    Yetkiler
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/Satis/Index" class="nav-link">
-                                <i class="nav-icon fas fa-money-check"></i>
-                                <p>
-                                    Satışlar
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
+                        <!--<li class="nav-item">
                             <a href="../calendar.html" class="nav-link">
                                 <i class="nav-icon far fa-calendar-alt"></i>
                                 <p>
@@ -212,7 +245,7 @@
                                     <span class="badge badge-info right">2</span>
                                 </p>
                             </a>
-                        </li>
+                        </li>-->
 
 
 

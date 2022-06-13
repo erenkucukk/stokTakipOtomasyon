@@ -40,6 +40,12 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -64,13 +70,14 @@
     <Compile Include="Mapping\PersonelMap.cs" />
     <Compile Include="Mapping\SatisMap.cs" />
     <Compile Include="Mapping\SepetMap.cs" />
+    <Compile Include="Mapping\SiparisMap.cs" />
     <Compile Include="Mapping\StokHareketMap.cs" />
     <Compile Include="Mapping\UrunMap.cs" />
     <Compile Include="Mapping\UyeMap.cs" />
     <Compile Include="Mapping\YetkiMap.cs" />
-    <Compile Include="Migrations\202204271353405_databaseSonHal.cs" />
-    <Compile Include="Migrations\202204271353405_databaseSonHal.designer.cs">
-      <DependentUpon>202204271353405_databaseSonHal.cs</DependentUpon>
+    <Compile Include="Migrations\202205261545341_son.cs" />
+    <Compile Include="Migrations\202205261545341_son.designer.cs">
+      <DependentUpon>202205261545341_son.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AltKategori.cs" />
@@ -83,6 +90,7 @@
     <Compile Include="Model\Personel.cs" />
     <Compile Include="Model\Satis.cs" />
     <Compile Include="Model\Sepet.cs" />
+    <Compile Include="Model\Siparis.cs" />
     <Compile Include="Model\StokHareket.cs" />
     <Compile Include="Model\StokTakipContext.cs" />
     <Compile Include="Model\Urun.cs" />
@@ -98,8 +106,11 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202204271353405_databaseSonHal.resx">
-      <DependentUpon>202204271353405_databaseSonHal.cs</DependentUpon>
+    <Content Include="Content\PagedList.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202205261545341_son.resx">
+      <DependentUpon>202205261545341_son.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

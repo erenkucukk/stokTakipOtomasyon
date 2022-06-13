@@ -115,7 +115,7 @@
             </div>
             <label for="inputName" style="text-align:right" class="col-sm-1 col-form-label">Yetkisi:</label>
             <div class="col-sm-8">
-                <input type="text" name="YetkiId" class="form-control" id="inputName" value="@Model.YetkiId" placeholder="Yetki giriniz..">
+                @Html.DropDownListFor(x => x.YetkiId, (List<SelectListItem>)ViewBag.Yetkiler, new { @class = "form-control" })
             </div>
             <div class="col-sm-2">
 

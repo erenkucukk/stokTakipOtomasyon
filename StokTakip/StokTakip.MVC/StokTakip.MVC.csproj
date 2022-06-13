@@ -52,7 +52,19 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="ExpressionEvaluator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=90d9f15d622e2348, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExpressionEvaluator.2.0.4.0\lib\net40\ExpressionEvaluator.dll</HintPath>
+    </Reference>
+    <Reference Include="GSF.Core, Version=2.4.28.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\GSF.Core.2.4.28\lib\net46\GSF.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -128,21 +140,27 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AltKategoriController.cs" />
+    <Compile Include="Controllers\HataSayfalariController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\BirimController.cs" />
     <Compile Include="Controllers\KategoriController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MarkaController.cs" />
     <Compile Include="Controllers\PersonelController.cs" />
     <Compile Include="Controllers\SatisController.cs" />
     <Compile Include="Controllers\SepetController.cs" />
+    <Compile Include="Controllers\SiparisController.cs" />
     <Compile Include="Controllers\StokHareketController.cs" />
     <Compile Include="Controllers\UrunController.cs" />
     <Compile Include="Controllers\UyeController.cs" />
+    <Compile Include="Controllers\YetkiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Login.cs" />
+    <Compile Include="Models\SifreOlusturma.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Models\SifreGuncelleme.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="AdminLTE-3.2.0\.babelrc.js" />
@@ -2248,10 +2266,43 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="LoginEkranim\deneme.css" />
+    <Content Include="LoginEkranim\script.js" />
+    <Content Include="LoginEkranim\style.css" />
+    <Content Include="Models\AnaSayfa\css\bootstrap.css" />
+    <Content Include="Models\AnaSayfa\css\popuo-box.css" />
+    <Content Include="Models\AnaSayfa\css\style.css" />
+    <Content Include="Models\AnaSayfa\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Models\AnaSayfa\images\1.jpg" />
+    <Content Include="Models\AnaSayfa\images\10.jpg" />
+    <Content Include="Models\AnaSayfa\images\11.jpg" />
+    <Content Include="Models\AnaSayfa\images\2.jpg" />
+    <Content Include="Models\AnaSayfa\images\3.jpg" />
+    <Content Include="Models\AnaSayfa\images\4.jpg" />
+    <Content Include="Models\AnaSayfa\images\5.jpg" />
+    <Content Include="Models\AnaSayfa\images\6.jpg" />
+    <Content Include="Models\AnaSayfa\images\7.jpg" />
+    <Content Include="Models\AnaSayfa\images\8.jpg" />
+    <Content Include="Models\AnaSayfa\images\9.jpg" />
+    <Content Include="Models\AnaSayfa\images\arrow.png" />
+    <Content Include="Models\AnaSayfa\images\banner.jpg" />
+    <Content Include="Models\AnaSayfa\images\img-sp.png" />
+    <Content Include="Models\AnaSayfa\js\bootstrap.js" />
+    <Content Include="Models\AnaSayfa\js\easing.js" />
+    <Content Include="Models\AnaSayfa\js\jquery-2.1.4.min.js" />
+    <Content Include="Models\AnaSayfa\js\jquery.magnific-popup.js" />
+    <Content Include="Models\AnaSayfa\js\jquery.zbox.min.js" />
+    <Content Include="Models\AnaSayfa\js\move-top.js" />
+    <Content Include="Models\HataEkranim\dortYuzUc.css" />
+    <Content Include="Models\HataEkranim\hata.css" />
+    <Content Include="Models\HataEkranim\hata.js" />
+    <Content Include="Models\LoginEkranim\script.js" />
+    <Content Include="Models\LoginEkranim\style.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="AdminLTE-3.2.0\.browserslistrc" />
@@ -2591,6 +2642,10 @@
     <Content Include="AdminLTE-3.2.0\plugins\summernote\summernote.min.js.map" />
     <Content Include="AdminLTE-3.2.0\plugins\toastr\toastr.js.map" />
     <Content Include="AdminLTE-3.2.0\README.md" />
+    <Content Include="Models\AnaSayfa\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Models\AnaSayfa\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Models\AnaSayfa\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Models\AnaSayfa\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2648,9 +2703,20 @@
     <Content Include="Views\Satis\islem.cshtml" />
     <Content Include="Views\Satis\HepsiniSat.cshtml" />
     <Content Include="Views\Sepet\SeciliSat.cshtml" />
+    <Content Include="Views\Yetki\Index.cshtml" />
+    <Content Include="Views\Yetki\Ekle.cshtml" />
+    <Content Include="Views\Yetki\Guncelle.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\StokHareket\GetById.cshtml" />
+    <Content Include="Views\HataSayfalari\Hata403.cshtml" />
+    <Content Include="Views\HataSayfalari\Hata404.cshtml" />
+    <Content Include="Views\StokHareket\Raporlama.cshtml" />
+    <Content Include="Views\Satis\Raporlama.cshtml" />
+    <Content Include="Views\Urun\Raporlama.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Siparis\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -9,7 +9,20 @@
     <h2><b>Ürün Listesi</b></h2>
 </div>
 
+<div class="form-group" style="float:left;margin:15px">
+    <a class="btn btn-warning" href="/Urun/Raporlama">Raporlama</a>
 
+</div>
+
+<div class="form-group" style="float:right;margin:15px">
+    @using (Html.BeginForm("Index", "Urun", FormMethod.Get))
+    {
+        <div>
+            <b>Ürün Adı : </b> @Html.TextBox("aranacakUrun") &nbsp;
+            <button style="text-align: center; color: white; background-color: #4B5860">Ara</button>
+        </div>
+    }
+</div>
 
 <div style="margin:15px" class="form-group">
     <table class="table table-bordered">
@@ -43,13 +56,27 @@
                     <td>@urun.UrunDurum</td>
                     <td>
                         <a class="btn btn-warning" href="/Urun/Guncelle/@urun.UrunId">Güncelle</a>
-                        <a class="btn btn-success" href="/StokHareket/StokGiris/@urun.UrunId">Giriş</a>
-                        <a class="btn btn-danger" href="/StokHareket/StokCikis/@urun.UrunId">Çıkış</a>
+                        @{
+                            if (int.Parse(Session["YetkiId"].ToString()) == 1 || int.Parse(Session["YetkiId"].ToString()) == 3)
+                            {
+                                <a class="btn btn-success" href="/StokHareket/StokGiris/@urun.UrunId">Giriş</a>
+                            }
+                        }
+
+                        @{
+                            if (int.Parse(Session["YetkiId"].ToString()) == 1 || int.Parse(Session["YetkiId"].ToString()) == 4)
+                            {
+                                <a class="btn btn-danger" href="/StokHareket/StokCikis/@urun.UrunId">Çıkış</a>
+                            }
+                        }
+
                     </td>
                     <td>
-                        <a class="btn btn-warning" href="/StokHareket/Index/">Hareket</a>
-                        <a class="nav-item; btn btn-info" href="/Sepet/Ekle/@urun.UrunId">Ekle 
-                        <i class="nav-icon fas fa-shopping-cart"></i></a>
+                        <a class="btn btn-warning" href="/StokHareket/GetById/@urun.UrunId">Hareket</a>
+                        <a class="nav-item; btn btn-info" href="/Sepet/Ekle/@urun.UrunId">
+                            Ekle
+                            <i class="nav-icon fas fa-shopping-cart"></i>
+                        </a>
                     </td>
                 </tr>
             }
@@ -60,3 +87,20 @@
 
 
 </div>
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
+
+    $('.btn-info').click(function () {
+        swal({
+            title: "Sepete Eklendi!",
+            text: "Seçtiğiniz ürün sepete eklendi.",
+            icon: "success",
+            button: "Tamam!",
+        });
+    });
+
+
+</script>

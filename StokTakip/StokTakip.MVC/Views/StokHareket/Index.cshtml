@@ -1,18 +1,28 @@
-﻿@using StokTakip.Entities.Model
+﻿@using PagedList
+@using PagedList.Mvc
+@using StokTakip.Entities.Model
 @model List<StokHareket>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
+
+
+
 <div style="margin:15px;text-align:center;color:white;background-color:#4B5860">
     <h2><b>Stok Hareketleri</b></h2>
 </div>
 
-<div class="form-group" style="text-align:right;margin:15px">
+<div class="form-group" style="float:left;margin:15px">
+    <a class="btn btn-warning" href="/StokHareket/Raporlama">Raporla</a>
+</div>
+
+
+<div class="form-group" style="float:right;margin:15px">
     @using (Html.BeginForm("Index", "StokHareket", FormMethod.Get))
     {
         <div>
-            <b>Ürün Adı : </b> @Html.TextBox("aranacakKelime") &nbsp;
+            <b>Ürün Adı : </b> @Html.TextBox("aranacakHareket") &nbsp;
             <button style="text-align: center; color: white; background-color: #4B5860">Ara</button>
         </div>
     }
@@ -47,22 +57,23 @@
                 }
                 #endregion
 
-            <tr style="text-align:center; color:@renk">
-                <td>@stkHrkt.HareketId</td>
-                <td>@stkHrkt.Tarih.ToString("dd.MM.yyyy")</td>
-                <td>@stkHrkt.Urun.UrunAdi</td>
-                <td>@stkHrkt.UrunMiktar</td>
-                <td>@stkHrkt.UrunAlisFiyat₺</td>
-                <td>@stkHrkt.UrunSatisFiyat₺</td>
-                <td>%@stkHrkt.Iskonto</td>
-                <td>@stkHrkt.UrunSonFiyat₺</td>
-                <td>@stkHrkt.Personel.PersonelAdi @stkHrkt.Personel.PersonelSoyadi</td>
-                <td>@tip</td>
-                <td>
-                    <a class="btn btn-success" href="/StokHareket/StokGiris/@stkHrkt.Urun.UrunId">Ekle</a>
-                    <a class="btn btn-primary" href="/StokHareket/StokCikis/@stkHrkt.Urun.UrunId">Stok Düş</a>
-                </td>
-            </tr>
+                <tr style="text-align:center; color:@renk">
+                    <td>@stkHrkt.HareketId</td>
+                    <td>@stkHrkt.Tarih.ToString("dd.MM.yyyy")</td>
+                    <td>@stkHrkt.Urun.UrunAdi</td>
+                    <td>@stkHrkt.UrunMiktar</td>
+                    <td>@stkHrkt.UrunAlisFiyat₺</td>
+                    <td>@stkHrkt.UrunSatisFiyat₺</td>
+                    <td>%@stkHrkt.Iskonto</td>
+                    <td>@stkHrkt.UrunSonFiyat₺</td>
+                    <td>@stkHrkt.Personel.PersonelAdi @stkHrkt.Personel.PersonelSoyadi</td>
+                    <td>@tip</td>
+                    <td>
+                        <a class="btn btn-success" href="/StokHareket/StokGiris/@stkHrkt.Urun.UrunId">Ekle</a>
+                        <a class="btn btn-primary" href="/StokHareket/StokCikis/@stkHrkt.Urun.UrunId">Stok Düş</a>
+                        <a class="btn btn-danger" href="/StokHareket/Sil/@stkHrkt.HareketId">Sil</a>
+                    </td>
+                </tr>
             }
         </tbody>
     </table>

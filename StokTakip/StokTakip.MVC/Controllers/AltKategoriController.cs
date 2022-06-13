@@ -12,9 +12,13 @@ namespace StokTakip.MVC.Controllers
         StokTakipContext db = new StokTakipContext();
 
         // GET: AltKategori
-        public ActionResult Index()
+        public ActionResult Index(string aranacaAltKtgr)
         {
-            List<AltKategori> altkategoriler = db.AltKategoris.Where(x => x.AltKategoriDurum).ToList();
+            List<AltKategori> altkategoriler = db.AltKategoris.ToList();
+            if (!string.IsNullOrEmpty(aranacaAltKtgr))
+            {
+                altkategoriler = altkategoriler.Where(x => x.AltKategoriAdi.ToLower().Contains(aranacaAltKtgr.ToLower())).ToList();
+            }
             return View(altkategoriler);
         }
 
