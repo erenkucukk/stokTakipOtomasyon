@@ -18,6 +18,7 @@ namespace StokTakip.Entities.Model
         public DateTime DogumTarihi { get; set; }
         public string Fotograf { get; set; }
         public bool PersonelDurum { get; set; }
+        public bool PersonelYeni { get; set; }
         public int YetkiId { get; set; }
         public virtual Yetki Yetki { get; set; }
 

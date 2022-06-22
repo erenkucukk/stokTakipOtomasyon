@@ -79,6 +79,10 @@
     <Compile Include="Migrations\202205261545341_son.designer.cs">
       <DependentUpon>202205261545341_son.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202206161349125_guncelleme.cs" />
+    <Compile Include="Migrations\202206161349125_guncelleme.designer.cs">
+      <DependentUpon>202206161349125_guncelleme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\AltKategori.cs" />
     <Compile Include="Model\Birim.cs" />
@@ -111,6 +115,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202205261545341_son.resx">
       <DependentUpon>202205261545341_son.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202206161349125_guncelleme.resx">
+      <DependentUpon>202206161349125_guncelleme.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

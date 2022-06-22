@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Şifre Güncelle Ekranı</title>
+    <link rel="stylesheet" href="~/LoginEkranim/style.css">
+
+</head>
+<body>
+    <!-- partial:index.partial.html -->
+    <div class="form-structor">
+
+        <form action="/Login/SifreGuncelle" method="post">
+            <div class="login">
+
+                <h2 class="form-title" id="login"><span>ya da</span>Şifreyi Güncelle</h2>
+
+                <div class="form-holder">
+                    <!--<input type="text" class="input" name="PersonelMail" placeholder="Önceki şifrenizi giriniz." />-->
+                    <input type="password" id ="Password" class="input" name="PersonelSifre" placeholder="Yeni şifrenizi giriniz." />
+                    <input type="password" id ="ReTypePassword" class="input" name="PersonelSifre" placeholder="Yeni şifrenizi tekrar giriniz." />
+                </div>
+                <button class="submit-btn"  id ="ChangePasswordButton">Güncelle</button>
+
+            </div>
+        </form>
+    </div>
+    <!-- partial -->
+    <script src="~/LoginEkranim/script.js"></script>
+
+</body>
+</html>
+
+

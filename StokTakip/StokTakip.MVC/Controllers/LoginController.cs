@@ -26,22 +26,39 @@ namespace StokTakip.MVC.Controllers
                 Personel personel = db.Personels.AsNoTracking().Where(x => (x.PersonelMail == pPersonel.PersonelMail || x.PersonelKAdi == pPersonel.PersonelKAdi) && x.PersonelSifre == pPersonel.PersonelSifre).FirstOrDefault();
 
 
-
                 if (personel != null)
                 {
-                    FormsAuthentication.SetAuthCookie(personel.PersonelKAdi, false);
-                    // Sistem Login olundu.
-                    Session["PersonelId"] = personel.PersonelId;
-                    Session["Personeli"] = personel.PersonelAdi + " " + personel.PersonelSoyadi;
-                    Session["PersonelMail"] = personel.PersonelMail;
-                    Session["PersonelFotograf"] = personel.Fotograf;
-                    Session["YetkiId"] = personel.YetkiId;
-                    return RedirectToAction("Index", "Kategori");
+                    if (personel.PersonelYeni == true)
+                    {
+                        FormsAuthentication.SetAuthCookie(personel.PersonelKAdi, false);
+                        // Sistem Login olundu.
+                        Session["PersonelId"] = personel.PersonelId;
+                        Session["Personeli"] = personel.PersonelAdi + " " + personel.PersonelSoyadi;
+                        Session["PersonelMail"] = personel.PersonelMail;
+                        Session["PersonelFotograf"] = personel.Fotograf;
+                        Session["YetkiId"] = personel.YetkiId;
+                        return RedirectToAction("Index", "Kategori");
+                    }
+                    else if(personel.PersonelYeni == false)
+                    {
+                        FormsAuthentication.SetAuthCookie(personel.PersonelKAdi, false);
+                        Session["PersonelId"] = personel.PersonelId;
+                        Session["Personeli"] = personel.PersonelAdi + " " + personel.PersonelSoyadi;
+                        Session["PersonelMail"] = personel.PersonelMail;
+                        Session["PersonelFotograf"] = personel.Fotograf;
+                        Session["YetkiId"] = personel.YetkiId;
+                        
+                        personel.PersonelYeni = true;
+                        pPersonel.PersonelYeni = true;
+                        return RedirectToAction("Index", "Kategori");
+                    }
                 }
+
+
+
             }
-
-
             return RedirectToAction("Index");
+
         }
 
         public ActionResult CikisYap()
@@ -50,7 +67,15 @@ namespace StokTakip.MVC.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public ActionResult SifreGuncelle(Personel pPersonel)
+        {
+
+
+            return View();
+        }
     }
 
-    
+
 }
